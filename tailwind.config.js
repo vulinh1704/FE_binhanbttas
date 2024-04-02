@@ -1,44 +1,67 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: ["class"],
+  content: [
+    "./pages/**/*.{js,jsx}",
+    "./components/**/*.{js,jsx}",
+    "./app/**/*.{js,jsx}",
+    "./src/**/*.{js,jsx}",
+  ],
+  prefix: "",
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
     extend: {
-      fontFamily: {
-        mont: ["Montserrat", "ui-sans-serif", "system-ui"],
-        poppins: ["Poppins", "ui-serif", "Georgia"],
-        mono: ["Menlo", "ui-monospace", "SFMono-Regular"],
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       backgroundImage: {
-        linear: "linear-gradient(43deg, #3D5BF7 -38.75%, #29D3F8 100%)",
-        "linear-2": "linear-gradient(270deg, #262A8E 0%, #121354 100%)",
+        linear:
+          "linear-gradient(182.1deg, rgba(193, 126, 255, 0.3) -2.04%, rgba(99, 11, 183, 0.3) 100.18%)",
+        "linear-1":
+          "linear-gradient(182.1deg, #C17EFF -2.04%, #630BB7 100.18%)",
+        "linear-2":
+          "linear-gradient(182.1deg, rgba(193, 126, 255, 0.2) -2.04%, rgba(99, 11, 183, 0.2) 100.18%)",
       },
       colors: {
-        primary: "#2081E2",
-        secondary: { 1: "#656565", 2: "#AEB5C3" },
-        line: "#D6DBE2",
-        surface: {
-          1: "#101126",
-          2: "#F0F0F0",
-        },
-        red: "#FA000F",
-        green: "#4EAC76",
-        yellow: "#FFB239",
-        purple: "#8247E5",
-        bg: "#F4F6FA",
-        blue: { DEFAULT: "#D1D0F9", 2: "#3DBDF8" },
+        linear: "linear-gradient(42.92deg, #3D5BF7 -38.75%, #29D3F8 100%)",
+        primary: "rgba(32, 129, 226, 1)",
+        secondary: "rgba(33, 33, 33, 1)",
+        text: "rgba(90, 90, 90, 1)",
+        line: "rgba(218, 217, 217, 1)",
+        bg: "rgba(244, 246, 250, 1)",
+        orange: "rgba(243, 114, 44, 1)",
+        yellow: "rgba(248, 150, 30, 1)",
+        purple: "rgba(179, 17, 102, 1)",
+        pink: "rgba(227, 61, 111, 1)",
+        white: "rgba(255, 255, 255, 1)",
+        green: "green",
+        blue: "blue",
       },
-      screens: {
-        sm: "640.98px",
-        md: "768.98px",
-        lg: "1024.98px",
-        xl: "1280.98px",
-        "2xl": "1536.98px",
+      fontFamily: {
+        mont: ["Montserrat", "sans-serif"],
+        poppins: ["Poppins", "serif"],
+        varela: ["Varela Round", "sans-serif"],
+        roboto: ["Roboto", "sans-serif"],
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate")],
 };

@@ -1,7 +1,12 @@
+import Banner from "../components/Landing/Session/Banner/Banner";
 import React from "react";
 
 const Landing = () => {
-  return <div>Landing</div>;
+  return (
+    <>
+      <Banner />
+    </>
+  );
 };
 
 export default Landing;
