@@ -1,4 +1,4 @@
-import { Bg } from "../../assets/icons";
+import { Bg, CrownIcon } from "../../assets/icons";
 import React from "react";
 import Logo from "../Logo";
 import { Link } from "react-router-dom";
@@ -116,7 +116,8 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <p className="text-text text-center xl:text-end caption-3 pt-10">
+        <p className="text-text flex justify-center gap-2 xl:justify-end caption-3 pt-10">
+          <CrownIcon />
           ©2024BinhAnBT. All Rights Reserved.
         </p>
       </footer>

@@ -13,8 +13,8 @@ const Navbar = ({ isScroll }) => {
 
   return (
     <header
-      className={`fixed z-[10] top-0 w-full ${
-        isScroll ? "bg-white shadow-2xl" : "bg-white/30 backdrop-blur-[25px]"
+      className={`fixed z-[10] top-0 w-full shadow-xl ${
+        isScroll ? "bg-white " : "bg-white/30 backdrop-blur-[25px]"
       }`}
     >
       <div className="xl:flex items-center  justify-between hidden px-[100px] 2xl:px-[200px] py-4 ">
