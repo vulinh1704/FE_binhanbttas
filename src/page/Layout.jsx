@@ -24,7 +24,7 @@ const Layout = () => {
   return (
     <>
       <Navbar isScroll={isScroll} />
-      <div className="h-[100vh]">
+      <div className="">
         <Outlet></Outlet>
       </div>
       <Footer />

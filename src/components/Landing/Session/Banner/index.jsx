@@ -24,7 +24,7 @@ const Banner = () => {
               <img
                 src={item.img}
                 alt=""
-                className="w-full xl:h-[950px] h-[500px]"
+                className="w-full xl:h-[900px] h-[500px]"
               />
             </CarouselItem>
           ))}

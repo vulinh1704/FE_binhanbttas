@@ -13,7 +13,7 @@ const Navbar = ({ isScroll }) => {
 
   return (
     <header
-      className={`fixed z-[10] top-0 w-full shadow-xl ${
+      className={`fixed z-[10] top-0 w-full shadow-2xl ${
         isScroll ? "bg-white " : "bg-white/30 backdrop-blur-[25px]"
       }`}
     >
