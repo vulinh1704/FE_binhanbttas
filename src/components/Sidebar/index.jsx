@@ -48,7 +48,7 @@ const Sidebar = () => {
             </AccordionContent>
             <AccordionContent>
               <SheetClose asChild>
-                <Link to="/contact">Liên hệ</Link>
+                <Link to="/contact">Phản hồi</Link>
               </SheetClose>
             </AccordionContent>
           </AccordionItem>

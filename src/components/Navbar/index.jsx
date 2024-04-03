@@ -17,7 +17,7 @@ const Navbar = ({ isScroll }) => {
         isScroll ? "bg-white shadow-2xl" : "bg-white/30 backdrop-blur-[25px]"
       }`}
     >
-      <div className="xl:flex items-center  justify-between hidden px-[200px] py-4 ">
+      <div className="xl:flex items-center  justify-between hidden px-[100px] 2xl:px-[200px] py-4 ">
         <Logo />
         <div className="flex gap-3">
           {LIST_MENU.map((item) => (
@@ -41,7 +41,7 @@ const Navbar = ({ isScroll }) => {
             asChild
             className="rounded-lg bg-transparent text-black hover:text-white"
           >
-            <Link to="/contact">Liên hệ</Link>
+            <Link to="/contact">Phản hồi</Link>
           </Button>
         </div>
         <SearchInput />

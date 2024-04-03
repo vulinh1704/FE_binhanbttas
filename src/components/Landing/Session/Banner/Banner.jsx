@@ -44,7 +44,7 @@ const Banner = () => {
         </p>
         <Button
           asChild
-          className="xl:px-[50px] xl:h-[65px] xl:py-7 xl:text-xl px-[20px] py-4 bg-primary hover:bg-primary/70"
+          className="xl:px-[50px] xl:h-[65px] xl:mt-5 xl:py-7 xl:text-xl px-[20px] py-4 bg-primary hover:bg-primary/70"
         >
           <Link to="/contact">Liên hệ với chúng tôi</Link>
         </Button>
