@@ -8,14 +8,33 @@ import { Sheet, SheetContent, SheetTrigger } from "../../components/ui/sheet";
 import Sidebar from "../Sidebar";
 import SearchInput from "../SearchInput";
 
-const Navbar = () => {
+const Navbar = ({ isScroll }) => {
   let location = useLocation();
+
   return (
-    <header className="fixed z-[10] top-0 w-full bg-white">
-      <div className="xl:flex items-center  justify-between hidden px-[200px] py-4 border-b border-line">
+    <header
+      className={`fixed z-[10] top-0 w-full ${
+        isScroll
+          ? "bg-white border-b border-line"
+          : "bg-white/30 backdrop-blur-[25px]"
+      }`}
+    >
+      <div className="xl:flex items-center  justify-between hidden px-[200px] py-4 ">
         <Logo />
-        <SearchInput />
         <div className="flex gap-3">
+          {LIST_MENU.map((item) => (
+            <Button
+              asChild
+              key={item.id}
+              className={`rounded-lg bg-transparent text-surface-1 hover:text-white ${
+                location.pathname === item.href
+                  ? "text-white bg-primary/70"
+                  : ""
+              }`}
+            >
+              <Link to={item.href}>{item.title}</Link>
+            </Button>
+          ))}
           <Button
             asChild
             className="bg-transparent text-surface-1 hover:text-white rounded-lg"
@@ -29,25 +48,7 @@ const Navbar = () => {
             <Link to="/contact">Liên hệ</Link>
           </Button>
         </div>
-      </div>
-      <div className="hidden xl:flex gap-10 bg-bg py-1 item-center justify-center border-b border-line">
-        {LIST_MENU.map((item) => (
-          <Button
-            asChild
-            variant="ghost"
-            size="mini"
-            textSize="small"
-            className={`small font-bold rounded-lg  ${
-              item.href === location.pathname
-                ? "bg-primary/20 text-primary hover:bg-blue/25"
-                : "text-text"
-            }`}
-          >
-            <Link key={item.id} to={item.href}>
-              {item.title}
-            </Link>
-          </Button>
-        ))}
+        <SearchInput />
       </div>
       <div className="flex xl:hidden border-b border-line items-center justify-between px-4 py-3">
         <Logo />

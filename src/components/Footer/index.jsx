@@ -1,7 +1,11 @@
 import React from "react";
 
 const Footer = () => {
-  return <div>Footer</div>;
+  return (
+    <footer className="w-full bg-secondary py-[100px] px-[200px]">
+      Footer
+    </footer>
+  );
 };
 
 export default Footer;
