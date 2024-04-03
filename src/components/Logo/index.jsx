@@ -2,12 +2,16 @@ import React from "react";
 import logo from "../../images/logo.png";
 import { Link } from "react-router-dom";
 
-const Logo = () => {
+const Logo = ({ containerClass, textClass }) => {
   return (
     <Link to="/">
-      <div className="flex gap-2 items-center">
+      <div className={`flex gap-1 items-center ${containerClass}`}>
         <img src={logo} alt="logo" width={50} height={50} className="" />
-        <h2 className="heading-5 font-varela font-semibold">Bình An BT</h2>
+        <h2
+          className={`heading-5 mt-1 text-black font-varela font-semibold ${textClass}`}
+        >
+          Bình An BT
+        </h2>
       </div>
     </Link>
   );

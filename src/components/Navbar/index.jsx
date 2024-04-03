@@ -14,9 +14,7 @@ const Navbar = ({ isScroll }) => {
   return (
     <header
       className={`fixed z-[10] top-0 w-full ${
-        isScroll
-          ? "bg-white border-b border-line"
-          : "bg-white/30 backdrop-blur-[25px]"
+        isScroll ? "bg-white shadow-2xl" : "bg-white/30 backdrop-blur-[25px]"
       }`}
     >
       <div className="xl:flex items-center  justify-between hidden px-[200px] py-4 ">
@@ -26,10 +24,8 @@ const Navbar = ({ isScroll }) => {
             <Button
               asChild
               key={item.id}
-              className={`rounded-lg bg-transparent text-surface-1 hover:text-white ${
-                location.pathname === item.href
-                  ? "text-white bg-primary/70"
-                  : ""
+              className={`rounded-lg bg-transparent text-black hover:text-white ${
+                location.pathname === item.href ? "text-white bg-primary" : ""
               }`}
             >
               <Link to={item.href}>{item.title}</Link>
@@ -37,13 +33,13 @@ const Navbar = ({ isScroll }) => {
           ))}
           <Button
             asChild
-            className="bg-transparent text-surface-1 hover:text-white rounded-lg"
+            className="bg-transparent text-black hover:text-white rounded-lg"
           >
             <Link to="/about-us">Về chúng tôi</Link>
           </Button>
           <Button
             asChild
-            className="rounded-lg bg-transparent text-surface-1 hover:text-white"
+            className="rounded-lg bg-transparent text-black hover:text-white"
           >
             <Link to="/contact">Liên hệ</Link>
           </Button>
