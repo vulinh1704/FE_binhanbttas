@@ -4,6 +4,7 @@ import Autoplay from "embla-carousel-autoplay";
 import { BANNER } from "./data";
 import { Button } from "../../../ui/button";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Banner = () => {
   const plugin = React.useRef(
@@ -42,12 +43,18 @@ const Banner = () => {
         <p className="heading-6 xl:heading-3 text-white font-roboto">
           Get ready for your next adventure !
         </p>
-        <Button
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          transition={{ type: "spring", stiffness: 500 }}
           asChild
-          className="xl:px-[50px] xl:h-[65px] xl:mt-5 xl:py-7 xl:text-xl px-[20px] py-4 bg-primary hover:bg-primary/70"
         >
-          <Link to="/contact">Liên hệ với chúng tôi</Link>
-        </Button>
+          <Button
+            asChild
+            className="xl:px-[50px] xl:h-[65px] xl:mt-5 xl:py-7 xl:text-xl px-[20px] py-4 bg-primary hover:bg-primary"
+          >
+            <Link to="/contact">Liên hệ với chúng tôi</Link>
+          </Button>
+        </motion.button>
       </div>
     </div>
   );

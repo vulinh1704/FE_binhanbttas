@@ -2,5 +2,5 @@ export const LIST_MENU = [
   { id: 1, title: "Trang chủ", href: "/" },
   { id: 2, title: "Du lịch", href: "/tours" },
   { id: 3, title: "Dịch vụ", href: "/service" },
-  { id: 4, title: "Bất động sản", href: "/news" },
+  { id: 4, title: "Tin tức", href: "/news" },
 ];

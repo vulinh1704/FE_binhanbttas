@@ -10,13 +10,13 @@ const SectionHeader = ({ isShowButton = true, href, children, des }) => {
         <h2 className="heading-6 md:heading-4 text-secondary font-roboto">
           <strong>{children}</strong>
         </h2>
-        <p className="text-text small md:big">{des}</p>
+        <p className="text-text small md:max-w-[500px] md:big">{des}</p>
       </div>
       {isShowButton && (
         <Button
           asChild
           variant="ghost"
-          className="md:text-lg items-center justify-center gap-1"
+          className="md:text-lg items-center hover:bg-primary/70 hover:text-white justify-center gap-1"
         >
           <Link to={href}>
             Xem thêm
