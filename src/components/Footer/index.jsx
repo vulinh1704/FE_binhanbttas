@@ -12,7 +12,7 @@ import qrzl from "../../images/footer-img/qrzalo.jpg";
 const Footer = () => {
   return (
     <div className="w-full mt-10 relative bottom-0">
-      <Bg className="w-full h-10" />
+      <Bg className="w-full h-10 hidden md:block" />
       <footer className="w-full bg-background pt-[100px] pb-[50px] xl:px-[100px] 2xl:px-[200px] flex flex-col">
         <div className="pb-10 border-b gap-10 xl:gap-0 border-line flex flex-col xl:flex-row justify-between">
           <div className="flex flex-col px-10 gap-4 xl:border-r border-line w-full xl:max-w-[400px]">
