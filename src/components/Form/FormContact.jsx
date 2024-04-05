@@ -102,7 +102,7 @@ const FormContact = () => {
                   <textarea
                     placeholder="Nhập câu hỏi"
                     onChange={(value) => field.onChange(value)}
-                    className="w-full border border-line bg-white h-[300px] px-3 py-2 text-sm placeholder:text-sm text-text focus-visible:outline-primary/50 rounded-xl"
+                    className="w-full border border-line bg-white h-[150px] lg:h-[300px] px-3 py-2 text-sm placeholder:text-sm text-text focus-visible:outline-primary/50 rounded-xl"
                   />
                 </FormControl>
                 <FormMessage />

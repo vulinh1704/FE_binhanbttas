@@ -14,7 +14,7 @@ const LandingNews = () => {
       >
         Tin tức Bình Thuận
       </SectionHeader>
-      <div className="hidden px-20 md:grid grid-cols-4 gap-3">
+      <div className="hidden px-20 md:grid grid-cols-4 gap-5">
         {LANDING_NEWS_DATA.map((item) => (
           <LandingNewsItem
             key={item.id}

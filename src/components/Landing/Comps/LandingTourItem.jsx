@@ -6,8 +6,8 @@ import { Button } from "../../ui/button";
 const LandingTourItem = ({ imgBg, title, des, price, href }) => {
   return (
     <motion.div
-      initial={{ opacity: 0.7, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
       whileHover={{ translateY: -8 }}
       transition={{ type: "spring", duration: 1.5 }}
       className="w-full ease-in-out hover:shadow-lg gap-2 p-3 bg-bg rounded-xl flex flex-col"

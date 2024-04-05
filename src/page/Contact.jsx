@@ -14,14 +14,14 @@ import FormContact from "../components/Form/FormContact";
 
 const Contact = () => {
   return (
-    <SectionLayout className="mt-[82px] lg:flex-row">
-      <div className="flex flex-col gap-3 lg:gap-5 w-full">
-        <h2 className="heading-5 lg:heading-4 font-roboto text-secondary lg:font-bold font-bold">
-          Kết nối với chúng tôi
+    <SectionLayout className="mt-[100px] lg:flex-row">
+      <div className="flex flex-col p-8 gap-3 lg:gap-8 w-full">
+        <h2 className="heading-5 lg:heading-2 font-roboto text-secondary lg:font-bold font-bold">
+          Phản hồi
         </h2>
-        <div className="flex flex-col gap-1 lg:gap-3">
-          <p className="big">+84 867 046 286</p>
-          <p className="big">tmdvbinhanbt@gmail.com</p>
+        <div className="flex flex-col gap-1 lg:gap-5">
+          <p className="big lg:heading-5">+84 867 046 286</p>
+          <p className="big lg:heading-5">tmdvbinhanbt@gmail.com</p>
           <div className="flex gap-4">
             {SOCIAL_MEDIA.map((item) => (
               <Button
