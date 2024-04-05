@@ -10,7 +10,7 @@ const SectionHeader = ({ isShowButton = true, href, children, des }) => {
         <h2 className="heading-6 md:heading-4 text-secondary font-roboto">
           <strong>{children}</strong>
         </h2>
-        <p className="text-text small md:max-w-[500px] md:big">{des}</p>
+        <p className="text-text pl-2 small md:max-w-[500px] md:big">{des}</p>
       </div>
       {isShowButton && (
         <Button

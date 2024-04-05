@@ -12,8 +12,8 @@ const LandingService = () => {
       <SectionLayout className="bg-background md:pb-[100px]">
         <SectionHeader href="/service">Các dịch vụ của chúng tôi</SectionHeader>
         <div className="relative flex items-center md:justify-center">
-          {/* <div className="absolute left-2/25 w-[2px] h-[450px] xl:h-[650px] bg-line" /> */}
-          <div className="flex relative z-[1] flex-col gap-[55px] md:gap-20">
+          {/* <div className="left-2/25 w-[2px] relative left-1/10 -translate-x-1/10 h-[450px] xl:h-[810px] bg-line" /> */}
+          <div className="flex flex-col w-full justify-center items-center gap-[55px] md:gap-20">
             {LANDING_SERVICE_DATA.map((item) => (
               <LandingServiceItem
                 key={item.id}

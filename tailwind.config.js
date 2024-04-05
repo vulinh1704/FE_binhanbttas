@@ -58,8 +58,8 @@ module.exports = {
       fontFamily: {
         mont: ["Montserrat", "sans-serif"],
         poppins: ["Poppins", "serif"],
-        // varela: ["Varela Round", "sans-serif"],
-        // roboto: ["Roboto", "sans-serif"],
+        varela: ["Varela Round", "sans-serif"],
+        roboto: ["Roboto", "sans-serif"],
       },
     },
   },

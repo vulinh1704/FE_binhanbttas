@@ -4,17 +4,28 @@ import SectionHeader from "../../../SectionHeader";
 import LandingNewsItem from "../../Comps/LandingNewsItem";
 import { LANDING_NEWS_DATA } from "./data";
 
-const News = () => {
+const LandingNews = () => {
+  const newData = LANDING_NEWS_DATA.slice(0, 4);
   return (
     <SectionLayout>
       <SectionHeader
         href="/news"
-        des="Giao thông, Bất động sản, thời sự trong ngày."
+        des="Giao thông, bất động sản, thời sự trong ngày."
       >
         Tin tức Bình Thuận
       </SectionHeader>
-      <div className="flex flex-col md:flex-row gap-3">
+      <div className="hidden px-20 md:grid grid-cols-4 gap-3">
         {LANDING_NEWS_DATA.map((item) => (
+          <LandingNewsItem
+            key={item.id}
+            href={item.href}
+            img={item.img}
+            title={item.title}
+          />
+        ))}
+      </div>
+      <div className="flex flex-col md:hidden gap-3">
+        {newData.map((item) => (
           <LandingNewsItem
             key={item.id}
             href={item.href}
@@ -27,4 +38,4 @@ const News = () => {
   );
 };
 
-export default News;
+export default LandingNews;

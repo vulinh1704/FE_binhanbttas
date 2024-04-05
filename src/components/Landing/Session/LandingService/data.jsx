@@ -17,7 +17,7 @@ export const LANDING_SERVICE_DATA = [
     img: img,
     containerClass: "",
     imgClass: "md:order-2",
-    textClass: "md:order-1",
+    textClass: "md:order-1 items-end",
   },
   {
     id: 3,

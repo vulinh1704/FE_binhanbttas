@@ -12,12 +12,7 @@ const LandingTour = () => {
       <SectionHeader href="/tours" des="Đi cùng người thân vừa vui vừa thích!">
         Các điểm đến thú vị tại Bình Thuận
       </SectionHeader>
-      <motion.div
-        whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -30 }}
-        transition={{ duration: 0.5 }}
-        className="lg:flex hidden justify-center items-center gap-[15px] w-full"
-      >
+      <div className="lg:grid hidden px-20 justify-center place-items-center items-center grid-cols-4 gap-[15px] w-full">
         {LANDING_TOUR_DATA.map((item) => (
           <LandingTourItem
             href={item.href}
@@ -28,7 +23,7 @@ const LandingTour = () => {
             des={item.des}
           />
         ))}
-      </motion.div>
+      </div>
       <div className="lg:hidden">
         <Carousel
           opts={{
@@ -36,7 +31,7 @@ const LandingTour = () => {
           }}
           className="w-full"
         >
-          <CarouselContent className="pr-3">
+          <CarouselContent className="pr-3 gap-3 mr-2 sm:mr-3 md:mr-5">
             {LANDING_TOUR_DATA.map((item) => (
               <CarouselItem key={item.id} className="md:basis-1/2">
                 <LandingTourItem

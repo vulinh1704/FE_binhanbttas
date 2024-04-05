@@ -8,9 +8,9 @@ const Logo = ({ containerClass, textClass }) => {
       <div className={`flex gap-1 items-center ${containerClass}`}>
         <img src={logo} alt="logo" width={50} height={50} className="" />
         <h2
-          className={`heading-5 mt-1 text-black font-varela font-semibold ${textClass}`}
+          className={`heading-5 mt-1 text-black font-varela font-outline-black-2 font-semibold ${textClass}`}
         >
-          Bình An BT
+          BìnhAnBT
         </h2>
       </div>
     </Link>

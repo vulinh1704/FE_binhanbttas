@@ -7,20 +7,22 @@ const LandingNewsItem = ({ href, img, title, des }) => {
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ type: "spring", duration: 0.9 }}
+      transition={{ type: "spring", duration: 1.5 }}
       className="w-full shadow-lg group hover:shadow-xl bg-bg rounded-xl h-fit flex flex-col gap-3"
     >
       <div className="overflow-hidden rounded-xl">
         <img
           src={img}
           alt=""
-          className="rounded-xl group-hover:scale-125 transition-transform duration-300 "
+          className="rounded-xl group-hover:scale-110 transition-transform duration-300 "
         />
       </div>
 
       <div className="flex flex-col pb-4 gap-3 px-4">
         <div>
-          <h2 className="big font-semibold line-clamp-3">{title}</h2>
+          <h2 className="big text-secondary md:heading-6 font-bold line-clamp-3">
+            <strong>{title}</strong>
+          </h2>
           {/* <p className="small font-normal line-clamp-4">{des}</p> */}
         </div>
         <div className="w-full flex items-center justify-center">

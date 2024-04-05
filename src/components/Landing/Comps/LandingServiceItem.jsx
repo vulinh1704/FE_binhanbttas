@@ -30,9 +30,9 @@ const LandingServiceItem = ({
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="heading-5 xl:heading-4 xl:leading-9 font-semibold text-secondary"
+          className="heading-6 xl:heading-4 xl:leading-9 text-secondary"
         >
-          {title}
+          <strong>{title}</strong>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 10 }}

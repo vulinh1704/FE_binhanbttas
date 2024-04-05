@@ -1,11 +1,19 @@
 import React from "react";
+import { motion } from "framer-motion";
+
 import { Link } from "react-router-dom";
 import { Button } from "../../ui/button";
 const LandingTourItem = ({ imgBg, title, des, price, href }) => {
   return (
-    <div className="w-full transition-transform duration-150 ease-in-out hover:translate-y-[-8px] hover:transform hover:shadow-lg max-w-[315px] gap-4 p-3 bg-bg rounded-xl flex flex-col">
-      <img src={imgBg} alt="" className="rounded-xl" height={200} />
-      <div className="flex flex-col gap-1">
+    <motion.div
+      initial={{ opacity: 0.7, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      whileHover={{ translateY: -8 }}
+      transition={{ type: "spring", duration: 1.5 }}
+      className="w-full ease-in-out hover:shadow-lg gap-2 p-3 bg-bg rounded-xl flex flex-col"
+    >
+      <img src={imgBg} alt="" className="rounded-xl" />
+      <div className="flex flex-col">
         <h2 className="heading-6 font-bold text-secondary truncate text-nowrap">
           {title}
         </h2>
@@ -26,7 +34,7 @@ const LandingTourItem = ({ imgBg, title, des, price, href }) => {
           <Link to={href}>Xem thêm</Link>
         </Button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

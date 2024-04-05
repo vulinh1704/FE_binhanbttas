@@ -25,4 +25,28 @@ export const LANDING_NEWS_DATA = [
     title: "TPHCM: Cháy nhà gần chợ Bà Chiểu, một người tử vong",
     img: bg,
   },
+  {
+    id: 5,
+    href: "",
+    title: " TPHCM: Cháy nhà gần chợ Bà Chiểu, một người tử vong",
+    img: bg,
+  },
+  {
+    id: 6,
+    href: "",
+    title: "TPHCM: Cháy nhà gần chợ Bà Chiểu, một người tử vong ",
+    img: bg,
+  },
+  {
+    id: 7,
+    href: "",
+    title: "TPHCM: Cháy nhà gần chợ Bà Chiểu, một người tử vong",
+    img: bg,
+  },
+  {
+    id: 8,
+    href: "",
+    title: "TPHCM: Cháy nhà gần chợ Bà Chiểu, một người tử vong",
+    img: bg,
+  },
 ];
