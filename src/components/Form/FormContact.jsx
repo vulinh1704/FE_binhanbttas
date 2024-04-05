@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "../ui/button";
+import { blockInvalidChar } from "../../utils";
 import {
   Form,
   FormControl,
@@ -15,7 +16,7 @@ import { Input } from "../ui/input";
 const formSchema = z.object({
   name: z.string(),
   email: z.string(),
-  phone: z.number(),
+  phone: z.string(),
   message: z.string(),
 });
 
@@ -25,7 +26,7 @@ const FormContact = () => {
     defaultValues: {
       name: "",
       email: "",
-      phone: 0,
+      phone: "",
       message: "",
     },
   });
@@ -84,6 +85,7 @@ const FormContact = () => {
                     placeholder="Nhập số điện thoại"
                     onChange={(value) => field.onChange(value)}
                     className="w-full bg-white"
+                    onKeyDown={blockInvalidChar}
                     type="number"
                   />
                 </FormControl>
@@ -100,7 +102,7 @@ const FormContact = () => {
                   <textarea
                     placeholder="Nhập câu hỏi"
                     onChange={(value) => field.onChange(value)}
-                    className="w-full bg-white h-10 px-3 py-2 text-sm placeholder:text-sm text-text focus-visible:outline-primary/50 rounded-xl"
+                    className="w-full border border-line bg-white h-[300px] px-3 py-2 text-sm placeholder:text-sm text-text focus-visible:outline-primary/50 rounded-xl"
                   />
                 </FormControl>
                 <FormMessage />

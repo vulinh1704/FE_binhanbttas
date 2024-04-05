@@ -15,8 +15,8 @@ import FormContact from "../components/Form/FormContact";
 const Contact = () => {
   return (
     <SectionLayout className="mt-[82px] lg:flex-row">
-      <div className="flex flex-col gap-3 lg:gap-5">
-        <h2 className="heading-5 lg:heading-3 font-roboto text-secondary lg:font-bold font-bold">
+      <div className="flex flex-col gap-3 lg:gap-5 w-full">
+        <h2 className="heading-5 lg:heading-4 font-roboto text-secondary lg:font-bold font-bold">
           Kết nối với chúng tôi
         </h2>
         <div className="flex flex-col gap-1 lg:gap-3">
