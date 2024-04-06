@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import bgBanner from "../images/bg-header.jpg";
 import SectionLayout from "../components/SectionLayout";
 import PageBanner from "../components/PageBanner";
@@ -7,6 +6,7 @@ import BlogItem from "../components/BlogItem";
 import { LIST_TOURS_DATA } from "../components/BlogItem/data";
 import bg from "../images/contact/ngt.jpg";
 import { CircleIcon } from "../assets/icons";
+import PaginationComps from "../components/PaginationComps";
 
 const Tours = () => {
   return (
@@ -28,6 +28,10 @@ const Tours = () => {
               createAt={item.createAt}
             />
           ))}
+          <PaginationComps
+            totalPages={5}
+            className="xl:justify-end justify-center mt-10"
+          />
         </SectionLayout>
         <img
           src={bg}

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const PageBanner = ({ bg, title, isShowLink = false, pageName }) => {
   const bgBanner = {
@@ -12,7 +13,9 @@ const PageBanner = ({ bg, title, isShowLink = false, pageName }) => {
       <div className="flex flex-col gap-2 xl:gap-8 justify-center items-center">
         {isShowLink && (
           <div className="flex gap-2 items-center justify-center">
-            <p className="text-line">Trang chủ</p>
+            <p className="text-line cursor-pointer">
+              <Link to="/">Trang chủ</Link>
+            </p>
             <div className="w-1 h-1 bg-yellow rounded-full" />
             <p className="text-white">{pageName}</p>
           </div>
