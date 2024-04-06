@@ -12,10 +12,10 @@ const Banner = () => {
   );
 
   return (
-    <div className="w-full mt-[75px] xl:mt-0 xl:h-[1015px] h-[540px] relative ">
+    <div className="w-full mt-[75px] xl:mt-0 xl:h-[810px] h-[540px] relative ">
       <div className="w-full h-full relative hidden lg:block">
         <iframe
-          className="w-full xl:h-[1015px] h-[540px] "
+          className="w-full xl:h-[810px] h-[540px] "
           src="https://www.youtube.com/embed/XMWxvKWst3o?si=-SqNnRZyZ1ko2WpH&amp;?&playlist=XMWxvKWst3o&loop=1&autoplay=1&mute=1&controls=0&rel=0"
           title="YouTube video player"
           frameborder="0"

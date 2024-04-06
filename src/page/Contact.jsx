@@ -2,6 +2,8 @@ import React from "react";
 import SectionLayout from "../components/SectionLayout";
 import { Link } from "react-router-dom";
 import { Button } from "../components/ui/button";
+import { motion } from "framer-motion";
+import bg from "../images/contact/ngt.jpg";
 import {
   Popover,
   PopoverContent,
@@ -15,7 +17,12 @@ import FormContact from "../components/Form/FormContact";
 const Contact = () => {
   return (
     <SectionLayout className="mt-[100px] lg:flex-row">
-      <div className="flex flex-col p-8 gap-3 lg:gap-8 w-full">
+      <motion.div
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, type: "spring" }}
+        className="flex flex-col relative p-10 gap-3 lg:gap-8 w-full lg:max-w-[500px]"
+      >
         <h2 className="heading-5 lg:heading-2 font-roboto text-secondary lg:font-bold font-bold">
           Phản hồi
         </h2>
@@ -49,8 +56,13 @@ const Contact = () => {
             </Popover>
           </div>
         </div>
-      </div>
+      </motion.div>
       <FormContact />
+      <img
+        src={bg}
+        alt=""
+        className="absolute left-0 w-full max-h-[200px] z-[-1] top-1/2"
+      />
     </SectionLayout>
   );
 };

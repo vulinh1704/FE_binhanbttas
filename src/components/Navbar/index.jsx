@@ -13,7 +13,7 @@ const Navbar = ({ isScroll }) => {
 
   return (
     <header
-      className={`fixed z-[10] top-0 w-full shadow-2xl ${
+      className={`fixed z-20 top-0 w-full shadow-2xl ${
         isScroll ? "bg-white " : "bg-white/30 backdrop-blur-[25px]"
       }`}
     >
@@ -33,13 +33,17 @@ const Navbar = ({ isScroll }) => {
           ))}
           <Button
             asChild
-            className="bg-transparent text-black hover:text-white rounded-lg"
+            className={`rounded-lg bg-transparent text-black hover:text-white ${
+              location.pathname === "/about-us" ? "text-white bg-primary" : ""
+            }`}
           >
             <Link to="/about-us">Về chúng tôi</Link>
           </Button>
           <Button
             asChild
-            className="rounded-lg bg-transparent text-black hover:text-white"
+            className={`rounded-lg bg-transparent text-black hover:text-white ${
+              location.pathname === "/contact" ? "text-white bg-primary" : ""
+            }`}
           >
             <Link to="/contact">Phản hồi</Link>
           </Button>

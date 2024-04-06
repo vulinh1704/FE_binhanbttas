@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import SectionLayout from "../../../SectionLayout";
 import SectionHeader from "../../../SectionHeader";
 import LandingTourItem from "../../Comps/LandingTourItem";
@@ -12,7 +11,7 @@ const LandingTour = () => {
       <SectionHeader href="/tours" des="Đi cùng người thân vừa vui vừa thích!">
         Các điểm đến thú vị tại Bình Thuận
       </SectionHeader>
-      <div className="lg:grid hidden px-20 justify-center place-items-center items-center grid-cols-4 gap-[15px] w-full">
+      <div className="lg:grid hidden justify-center place-items-center items-center grid-cols-4 gap-[15px] w-full">
         {LANDING_TOUR_DATA.map((item) => (
           <LandingTourItem
             href={item.href}

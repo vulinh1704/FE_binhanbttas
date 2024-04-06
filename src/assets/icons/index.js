@@ -4,3 +4,4 @@ export { default as Bg } from "./Bg";
 export { default as BgBottom } from "./BgBottom";
 export { default as CrownIcon } from "./Crown";
 export { default as MoreIcon } from "./More";
+export { default as CircleIcon } from "./Circle";

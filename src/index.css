@@ -32,11 +32,11 @@
   }
 
   .heading-3 {
-    @apply text-[2.75rem] font-normal leading-[2rem];
+    @apply text-[2.75rem] font-normal leading-[2.5rem];
   }
 
   .heading-4 {
-    @apply text-[2rem] font-normal leading-[1.5rem];
+    @apply text-[2rem] font-normal leading-[2.5rem];
   }
 
   .heading-5 {
@@ -132,6 +132,11 @@
     background-color: #d6dbe2;
     @apply rounded-full;
   }
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 input[type="number"] {
   -moz-appearance: textfield;

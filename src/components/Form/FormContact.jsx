@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { motion } from "framer-motion";
 import { Button } from "../ui/button";
 import { blockInvalidChar } from "../../utils";
 import {
@@ -14,10 +15,10 @@ import {
 import { Input } from "../ui/input";
 
 const formSchema = z.object({
-  name: z.string(),
-  email: z.string(),
-  phone: z.string(),
-  message: z.string(),
+  name: z.string().min(1, { message: "Vui lòng nhập tên" }),
+  email: z.string().email({ message: "Email không chính xác!" }),
+  phone: z.string().min(1, { message: "Vui lòng nhập số điện thoại liên hệ" }),
+  message: z.string().min(1, { message: "Vui lòng thông tin muốn phản hồi" }),
 });
 
 const FormContact = () => {
@@ -37,12 +38,17 @@ const FormContact = () => {
 
   return (
     <Form {...form}>
-      <form
+      <motion.form
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, type: "spring" }}
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex justify-between w-full"
       >
-        <div className="w-full rounded-[20px] bg-bg p-8 flex flex-col gap-5">
-          <h4 className="heading-4 mb-10">Nhập thông tin</h4>
+        <div className="w-full rounded-[20px] bg-bg p-8 flex flex-col gap-3">
+          <h4 className="heading-4 font-bold text-secondary mb-5">
+            Nhập thông tin
+          </h4>
           <FormField
             name="name"
             control={form.control}
@@ -94,7 +100,7 @@ const FormContact = () => {
             )}
           />
           <FormField
-            name="name"
+            name="message"
             control={form.control}
             render={({ field }) => (
               <FormItem>
@@ -109,13 +115,13 @@ const FormContact = () => {
               </FormItem>
             )}
           />
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-end">
             <Button type="submit" className="rounded-full px-20">
               Gửi
             </Button>
           </div>
         </div>
-      </form>
+      </motion.form>
     </Form>
   );
 };
