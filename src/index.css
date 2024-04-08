@@ -28,11 +28,11 @@
   }
 
   .heading-2 {
-    @apply text-[3.5rem] font-normal leading-[2.5rem];
+    @apply text-[3.5rem] font-normal leading-[3.5rem];
   }
 
   .heading-3 {
-    @apply text-[2.75rem] font-normal leading-[2.5rem];
+    @apply text-[2.75rem] font-normal leading-[3.5rem];
   }
 
   .heading-4 {

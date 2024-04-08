@@ -1,8 +1,9 @@
 import img from "../../../../images/landing/bth.jpg";
+import { v4 as uuidv4 } from "uuid";
 
 export const LANDING_TOUR_DATA = [
   {
-    id: 1,
+    id: uuidv4(),
     imgBg: img,
     href: "",
     price: "100 000",
@@ -10,7 +11,7 @@ export const LANDING_TOUR_DATA = [
     des: "Lan đấm Nhàn thâm mắt",
   },
   {
-    id: 2,
+    id: uuidv4(),
     imgBg: img,
     href: "",
     price: "100 000",
@@ -18,7 +19,7 @@ export const LANDING_TOUR_DATA = [
     des: "Lan đấm Nhàn thâm mắt",
   },
   {
-    id: 3,
+    id: uuidv4(),
     imgBg: img,
     href: "",
     price: "100 000",
@@ -26,7 +27,7 @@ export const LANDING_TOUR_DATA = [
     des: "Lan đấm Nhàn thâm mắt",
   },
   {
-    id: 4,
+    id: uuidv4(),
     imgBg: img,
     href: "",
     price: "100 000",
@@ -34,7 +35,7 @@ export const LANDING_TOUR_DATA = [
     des: "Lan đấm Nhàn thâm mắt",
   },
   {
-    id: 5,
+    id: uuidv4(),
     imgBg: img,
     href: "",
     price: "100 000",
@@ -42,7 +43,7 @@ export const LANDING_TOUR_DATA = [
     des: "Lan đấm Nhàn thâm mắt",
   },
   {
-    id: 6,
+    id: uuidv4(),
     imgBg: img,
     href: "",
     price: "100 000",
@@ -50,7 +51,7 @@ export const LANDING_TOUR_DATA = [
     des: "Lan đấm Nhàn thâm mắt",
   },
   {
-    id: 7,
+    id: uuidv4(),
     imgBg: img,
     href: "",
     price: "100 000",
@@ -58,7 +59,7 @@ export const LANDING_TOUR_DATA = [
     des: "Lan đấm Nhàn thâm mắt",
   },
   {
-    id: 8,
+    id: uuidv4(),
     imgBg: img,
     href: "",
     price: "100 000",

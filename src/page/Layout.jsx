@@ -44,7 +44,7 @@ const Layout = () => {
     <div className="relative">
       <Navbar isScroll={isScroll} />
       <div className="">
-        <Outlet></Outlet>
+        <Outlet />
       </div>
       {visible && (
         <Button

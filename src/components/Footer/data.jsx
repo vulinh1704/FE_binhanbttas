@@ -1,15 +1,16 @@
 import fb from "../../images/footer-img/fb.png";
 import tt from "../../images/footer-img/tt.png";
+import { v4 as uuidv4 } from "uuid";
 
 export const SOCIAL_MEDIA = [
   {
-    id: 1,
+    id: uuidv4(),
     href: "https://www.facebook.com/tmdvbinhanbt?mibextid=LQQJ4d",
     title: "Facebook",
     icon: fb,
   },
   {
-    id: 2,
+    id: uuidv4(),
     href: "https://www.tiktok.com/@binhanbt_review",
     title: "Tiktok",
     icon: tt,

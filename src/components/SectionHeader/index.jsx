@@ -3,11 +3,19 @@ import { Button } from "../ui/button";
 import { ArrowRightIcon } from "../../assets/icons";
 import { Link } from "react-router-dom";
 
-const SectionHeader = ({ isShowButton = true, href, children, des }) => {
+const SectionHeader = ({
+  isShowButton = true,
+  href,
+  children,
+  des,
+  titleClass,
+}) => {
   return (
     <div className="flex md:items-center gap-3 md:gap-0 items-start flex-col md:flex-row justify-between">
       <div className="flex flex-col md:gap-4">
-        <h2 className="heading-6 md:heading-4 text-secondary font-roboto">
+        <h2
+          className={`heading-6 md:heading-4 text-secondary font-roboto ${titleClass}`}
+        >
           <strong>{children}</strong>
         </h2>
         <p className="text-text pl-2 small md:max-w-[500px] md:big">{des}</p>

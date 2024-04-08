@@ -1,43 +1,43 @@
 import img from "../../images/landing/bth.jpg";
-
+import { v4 as uuidv4 } from "uuid";
 export const LIST_TOURS_DATA = [
   {
-    id: 1,
+    id: uuidv4(),
     img: img,
     title: "Đi Bình Thuận chơi",
     des: "Lan đấm Nhàn thâm mắt Lan đấm Nhàn thâm mắtLan đấm Nhàn thâm mắtLan đấm Nhàn thâm mắtLan đấm Nhàn thâm mắtLan đấm Nhàn thâm mắtLan đấm Nhàn thâm mắtLan đấm Nhàn thâm mắtLan đấm Nhàn thâm mắtLan đấm Nhàn thâm mắtLan đấm Nhàn thâm mắtLan đấm Nhàn thâm mắtLan đấm Nhàn thâm mắtLan đấm Nhàn thâm mắtLan đấm Nhàn thâm mắtLan đấm Nhàn thâm mắtLan đấm Nhàn thâm mắtLan đấm Nhàn thâm mắtLan đấm Nhàn thâm mắtLan đấm Nhàn thâm mắt",
     createAt: "29/10/2024",
   },
   {
-    id: 2,
+    id: uuidv4(),
     img: img,
     title: "Đi Bình Thuận chơi",
     des: "Lan đấm Nhàn thâm mắt",
     createAt: "29/10/2024",
   },
   {
-    id: 3,
+    id: uuidv4(),
     img: img,
     title: "Đi Bình Thuận chơi",
     des: "Lan đấm Nhàn thâm mắt",
     createAt: "29/10/2024",
   },
   {
-    id: 4,
+    id: uuidv4(),
     img: img,
     title: "Đi Bình Thuận chơi",
     des: "Lan đấm Nhàn thâm mắt",
     createAt: "29/10/2024",
   },
   {
-    id: 5,
+    id: uuidv4(),
     img: img,
     title: "Đi Bình Thuận chơi",
     des: "Lan đấm Nhàn thâm mắt",
     createAt: "29/10/2024",
   },
   {
-    id: 6,
+    id: uuidv4(),
     img: img,
     title: "Đi Bình Thuận chơi",
     des: "Lan đấm Nhàn thâm mắt",

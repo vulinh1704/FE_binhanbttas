@@ -9,7 +9,6 @@ const LandingServiceItem = ({
   des,
   img,
 }) => {
-  //   const { containerClass, imgClass, textClass, title, des, img } = data;
   return (
     <div
       className={`flex xl:max-w-[700px] xl:gap-10 items-center gap-5 ${containerClass}`}
@@ -29,6 +28,7 @@ const LandingServiceItem = ({
         <motion.h2
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="heading-6 xl:heading-4 xl:leading-9 text-secondary"
         >
@@ -36,6 +36,7 @@ const LandingServiceItem = ({
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 10 }}
+          viewport={{ once: true }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="big xl:heading-5 font-normal"

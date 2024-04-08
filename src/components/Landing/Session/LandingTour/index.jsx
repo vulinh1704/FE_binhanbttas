@@ -14,7 +14,7 @@ const LandingTour = () => {
       <div className="lg:grid hidden justify-center place-items-center items-center grid-cols-4 gap-[15px] w-full">
         {LANDING_TOUR_DATA.map((item) => (
           <LandingTourItem
-            href={item.href}
+            href={item.id}
             price={item.price}
             key={item.id}
             imgBg={item.imgBg}

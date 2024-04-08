@@ -28,7 +28,7 @@ const LandingNews = () => {
         {newData.map((item) => (
           <LandingNewsItem
             key={item.id}
-            href={item.href}
+            href={item.id}
             img={item.img}
             title={item.title}
           />

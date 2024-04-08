@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { motion } from "framer-motion";
 const PageBanner = ({ bg, title, isShowLink = false, pageName }) => {
   const bgBanner = {
     backgroundImage: `url(${bg})`,
   };
+  const characters = title.split("");
   return (
     <div
       style={bgBanner}
@@ -20,9 +21,19 @@ const PageBanner = ({ bg, title, isShowLink = false, pageName }) => {
             <p className="text-white">{pageName}</p>
           </div>
         )}
-        <h2 className="hidden text-center xl:block heading-2 w-full text-nowrap font-roboto text-white">
-          <strong>{title}</strong>
-        </h2>
+        <div className="flex">
+          {characters.map((item, index) => (
+            <motion.h2
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="hidden text-center xl:flex heading-2 w-full text-nowrap font-roboto text-white"
+            >
+              {item === " " ? "\u00A0" : item}
+            </motion.h2>
+          ))}
+        </div>
+
         <h2 className="heading-5  block xl:hidden w-full text-center text-nowrap font-roboto text-white">
           <strong>{title}</strong>
         </h2>

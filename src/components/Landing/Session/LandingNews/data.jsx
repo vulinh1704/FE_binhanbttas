@@ -1,50 +1,51 @@
+import { v4 as uuidv4 } from "uuid";
 import bg from "../../../../images/landing/bth.jpg";
 
 export const LANDING_NEWS_DATA = [
   {
-    id: 1,
+    id: uuidv4(),
     href: "",
     title: " TPHCM: Cháy nhà gần chợ Bà Chiểu, một người tử vong",
     img: bg,
   },
   {
-    id: 2,
+    id: uuidv4(),
     href: "",
     title: "TPHCM: Cháy nhà gần chợ Bà Chiểu, một người tử vong ",
     img: bg,
   },
   {
-    id: 3,
+    id: uuidv4(),
     href: "",
     title: "TPHCM: Cháy nhà gần chợ Bà Chiểu, một người tử vong",
     img: bg,
   },
   {
-    id: 4,
+    id: uuidv4(),
     href: "",
     title: "TPHCM: Cháy nhà gần chợ Bà Chiểu, một người tử vong",
     img: bg,
   },
   {
-    id: 5,
+    id: uuidv4(),
     href: "",
     title: " TPHCM: Cháy nhà gần chợ Bà Chiểu, một người tử vong",
     img: bg,
   },
   {
-    id: 6,
+    id: uuidv4(),
     href: "",
     title: "TPHCM: Cháy nhà gần chợ Bà Chiểu, một người tử vong ",
     img: bg,
   },
   {
-    id: 7,
+    id: uuidv4(),
     href: "",
     title: "TPHCM: Cháy nhà gần chợ Bà Chiểu, một người tử vong",
     img: bg,
   },
   {
-    id: 8,
+    id: uuidv4(),
     href: "",
     title: "TPHCM: Cháy nhà gần chợ Bà Chiểu, một người tử vong",
     img: bg,

@@ -3,7 +3,6 @@ import {
   Pagination,
   PaginationContent,
   PaginationItem,
-  PaginationNext,
 } from "../../components/ui/pagination";
 import { ArrowRightIcon } from "../../assets/icons";
 const PaginationComps = ({ totalPages, className }) => {
