@@ -20,7 +20,7 @@ const formSchema = z.object({
   password: z.string().min(1, { message: "Password không chính xác!" }),
 });
 
-const Admin = () => {
+const Admin = ({ sendToken }) => {
   const navigate = useNavigate();
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -34,21 +34,22 @@ const Admin = () => {
     const res = await handleAdminLogin(values);
     if (res.status === 200) {
       Cookies.set("token", res.data.token);
+      sendToken(res.data.token);
       navigate("/");
     }
   };
 
   return (
-    <div className="flex w-full h-full items-center justify-center">
-      <div className="flex gap-3 p-3 w-fit bg-line rounded-xl ">
+    <div className="flex md:min-w-[390px] w-full h-full items-center justify-center">
+      <div className="flex gap-3 p-3 w-full md:max-w-[400px] bg-bg border shadow-xl rounded-xl ">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className="flex justify-between w-full"
           >
             <div className="w-full rounded-[20px]  p-8 flex flex-col gap-3">
-              <h4 className="heading-4 font-bold text-secondary mb-5">
-                Admin đăng nhập
+              <h4 className="heading-4 font-bold text-secondary text-center mb-5">
+                Admin
               </h4>
               <FormField
                 name="username"
@@ -84,8 +85,11 @@ const Admin = () => {
                 )}
               />
               <div className="flex items-center justify-center mt-5">
-                <Button type="submit" className="rounded-full px-20">
-                  Gửi
+                <Button
+                  type="submit"
+                  className="rounded-full bg-text hover:bg-text/70 px-20"
+                >
+                  Đăng nhập
                 </Button>
               </div>
             </div>

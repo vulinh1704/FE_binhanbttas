@@ -1,5 +1,5 @@
 import "./index.css";
-
+import Cookies from "js-cookie";
 import { Route, Routes } from "react-router-dom";
 import Landing from "./page/Landing";
 import Service from "./page/Service";
@@ -12,8 +12,12 @@ import AboutUs from "./page/AboutUs";
 import BlogDetails from "./page/BlogDetails";
 import NotFound from "./page/NotFound";
 import AdminLayout from "./page/AdminLayout";
+import AdminHome from "./page/AdminHome";
+import AdminCheckContact from "./page/AdminCheckContact";
 
 function App() {
+  const token = Cookies.get("token");
+  console.log(token);
   return (
     <Routes>
       <Route path="" element={<Layout />}>
@@ -26,7 +30,11 @@ function App() {
         <Route path="contact" element={<Contact />} />
       </Route>
       <Route path="admin" element={<AdminLayout />}>
-        <Route path="" element={<AdminLogin />} />
+        <Route
+          path=""
+          element={token === undefined ? <AdminLogin /> : <AdminHome />}
+        />
+        <Route path="check" element={<AdminCheckContact />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
