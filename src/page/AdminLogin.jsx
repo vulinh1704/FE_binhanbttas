@@ -1,5 +1,7 @@
 import React from "react";
+import Cookies from "js-cookie";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "../components/ui/button";
@@ -14,11 +16,12 @@ import { Input } from "../components/ui/input";
 import { handleAdminLogin } from "../services/accounts/accounts.service";
 
 const formSchema = z.object({
-  username: z.string().min(1, { message: "Vui lòng nhập tên" }),
+  username: z.string().min(1, { message: "Tên không chính xác!" }),
   password: z.string().min(1, { message: "Password không chính xác!" }),
 });
 
 const Admin = () => {
+  const navigate = useNavigate();
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -29,7 +32,10 @@ const Admin = () => {
 
   const onSubmit = async (values) => {
     const res = await handleAdminLogin(values);
-    console.log("res", res.data.token);
+    if (res.status === 200) {
+      Cookies.set("token", res.data.token);
+      navigate("/");
+    }
   };
 
   return (
