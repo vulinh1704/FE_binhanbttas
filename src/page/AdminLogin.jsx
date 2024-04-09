@@ -11,9 +11,10 @@ import {
   FormMessage,
 } from "../components/ui/form";
 import { Input } from "../components/ui/input";
+import { handleAdminLogin } from "../services/accounts/accounts.service";
 
 const formSchema = z.object({
-  name: z.string().min(1, { message: "Vui lòng nhập tên" }),
+  username: z.string().min(1, { message: "Vui lòng nhập tên" }),
   password: z.string().min(1, { message: "Password không chính xác!" }),
 });
 
@@ -21,13 +22,14 @@ const Admin = () => {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
+      username: "",
       password: "",
     },
   });
 
-  const onSubmit = (values) => {
-    console.log("values", values);
+  const onSubmit = async (values) => {
+    const res = await handleAdminLogin(values);
+    console.log("res", res.data.token);
   };
 
   return (
@@ -43,7 +45,7 @@ const Admin = () => {
                 Admin đăng nhập
               </h4>
               <FormField
-                name="name"
+                name="username"
                 control={form.control}
                 render={({ field }) => (
                   <FormItem>
