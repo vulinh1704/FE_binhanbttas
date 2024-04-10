@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -14,6 +14,14 @@ import {
 } from "../../components/ui/form";
 import { ACCEPTED_IMAGE_TYPES } from "../../constants/variables";
 import { Input } from "../../components/ui/input";
+import { handleGetTypes } from "../../services/type/type.service";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../../components/ui/select";
 
 const formSchema = z.object({
   title: z.string().min(1, { message: "Vui lòng nhập Tiêu đề" }),
@@ -31,6 +39,17 @@ const formSchema = z.object({
 
 const AdminHome = () => {
   const [imgUrl, setImgUrl] = useState("");
+  const [types, setTypes] = useState([]);
+  console.log(types);
+
+  useEffect(() => {
+    const getTypes = async () => {
+      const res = await handleGetTypes();
+      setTypes(res.data);
+    };
+    getTypes();
+  }, []);
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -124,10 +143,10 @@ const AdminHome = () => {
                         <Input
                           type="file"
                           onChange={(value) => {
-                            field.onChange(value.target.files);
+                            field.onChange(value.target.files[0]);
                             handleGetImage(value);
                           }}
-                          className="w-full bg-white rounded-xl"
+                          className="w-full bg-white"
                         />
                       ) : (
                         <div className="w-fit h-fit p-1 border border-dashed rounded-xl border-line">
@@ -152,12 +171,20 @@ const AdminHome = () => {
                   <FormControl>
                     <>
                       <h2 className="small xl:big">
-                        Chọn loại bài <span className="text-red">*</span>
+                        Chọn loại bài viết <span className="text-red">*</span>
                       </h2>
-                      <Input
-                        onChange={(value) => field.onChange(value)}
-                        className="w-full bg-white"
-                      />
+                      <Select onValueChange={(value) => field.onChange(value)}>
+                        <SelectTrigger className="rounded-full">
+                          <SelectValue placeholder="Chọn loại bài viết" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {types.map((item) => (
+                            <SelectItem key={item.id} value={item.id}>
+                              {item.name}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
                     </>
                   </FormControl>
                   <FormMessage />

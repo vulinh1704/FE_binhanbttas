@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 const BlogItem = ({ img, title, des, createAt }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ type: "spring", duration: 1.5 }}
-      viewport={{ once: true }}
+      // initial={{ opacity: 0, scale: 0.9 }}
+      // whileInView={{ opacity: 1, scale: 1 }}
+      // transition={{ type: "spring", duration: 1.5 }}
+      // viewport={{ once: true }}
       className="w-full flex gap-3 group xl:gap-10 relative z-10 items-center py-8 xl:py-[60px] border-b border-line"
     >
       <div className="overflow-hidden rounded-lg min-w-[100px] xl:w-[250px]">

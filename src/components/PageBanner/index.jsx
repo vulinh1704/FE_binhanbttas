@@ -26,7 +26,7 @@ const PageBanner = ({ bg, title, isShowLink = false, pageName }) => {
             <motion.h2
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
               className="hidden text-center xl:flex heading-2 w-full text-nowrap font-roboto text-white"
             >
               {item === " " ? "\u00A0" : item}
