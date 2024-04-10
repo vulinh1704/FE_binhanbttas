@@ -54,6 +54,7 @@ module.exports = {
         green: "green",
         blue: "blue",
         background: "#f2f5fc",
+        red: "red",
       },
       fontFamily: {
         mont: ["Montserrat", "sans-serif"],
