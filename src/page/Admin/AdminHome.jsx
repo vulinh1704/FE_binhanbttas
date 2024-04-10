@@ -12,13 +12,18 @@ import {
   FormItem,
   FormMessage,
 } from "../../components/ui/button";
+import { ACCEPTED_IMAGE_TYPES } from "../../constants/variables";
 import { Input } from "../../components/ui/button";
 
 const formSchema = z.object({
-  name: z.string().min(1, { message: "Vui lòng nhập tên" }),
-  email: z.string().email({ message: "Email không chính xác!" }),
-  phone: z.string().min(1, { message: "Vui lòng nhập số điện thoại liên hệ" }),
-  message: z.string().min(1, { message: "Vui lòng thông tin muốn phản hồi" }),
+  title: z.string().min(1, { message: "Vui lòng nhập Tiêu đề" }),
+  description: z.string().min(1, { message: "Vui lòng nhập mô tả" }),
+  image: z.any().refine((file) => {
+    const fileType = file?.type;
+    return ACCEPTED_IMAGE_TYPES.includes(fileType);
+  }, "File ảnh không hợp lệ"),
+  type: z.string({ required_error: "Vui lòng chọn loại bài viết" }),
+  createAt: z.string(),
 });
 
 const AdminHome = () => {
