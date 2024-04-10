@@ -6,18 +6,17 @@ import Service from "./page/Service";
 import Layout from "./page/Layout";
 import Tours from "./page/Tours";
 import News from "./page/News";
-import AdminLogin from "./page/AdminLogin";
+import AdminLogin from "./page/Admin/AdminLogin";
 import Contact from "./page/Contact";
 import AboutUs from "./page/AboutUs";
 import BlogDetails from "./page/BlogDetails";
 import NotFound from "./page/NotFound";
-import AdminLayout from "./page/AdminLayout";
-import AdminHome from "./page/AdminHome";
-import AdminCheckContact from "./page/AdminCheckContact";
+import AdminLayout from "./page/Admin/AdminLayout";
+import AdminHome from "./page/Admin/AdminHome";
+import AdminCheckContact from "./page/Admin/AdminCheckContact";
 
 function App() {
   const token = Cookies.get("token");
-  console.log(token);
   return (
     <Routes>
       <Route path="" element={<Layout />}>
@@ -34,7 +33,10 @@ function App() {
           path=""
           element={token === undefined ? <AdminLogin /> : <AdminHome />}
         />
-        <Route path="check" element={<AdminCheckContact />} />
+        <Route
+          path="check-contact"
+          element={<AdminCheckContact token={token} />}
+        />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>

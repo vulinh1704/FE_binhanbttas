@@ -8,6 +8,7 @@ const AdminNavbar = () => {
   const token = Cookies.get("token");
   const handleRemoveToken = () => {
     Cookies.remove("token");
+    window.location.reload();
   };
   return (
     <div className="flex border-b shadow-xl fixed w-full items-center justify-between bg-bg px-4 xl:px-[200px] py-3">
@@ -20,7 +21,7 @@ const AdminNavbar = () => {
             <Link to="/admin">Viết Blog</Link>
           </Button>
           <Button asChild variant="ghost" className="">
-            <Link to="/admin/check">Check Phản hồi</Link>
+            <Link to="/admin/check-contact">Check Phản hồi</Link>
           </Button>
           <Button onClick={handleRemoveToken} variant="ghost" className="">
             Đăng xuất
