@@ -11,7 +11,7 @@ const AdminNavbar = () => {
     window.location.reload();
   };
   return (
-    <div className="flex border-b shadow-xl fixed w-full items-center justify-between bg-bg px-4 xl:px-[200px] py-3">
+    <div className="flex border-b z-10 shadow-xl fixed w-full items-center justify-between bg-bg px-4 xl:px-[200px] py-3">
       <Logo />
       {token === undefined ? (
         ""
