@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -13,27 +13,43 @@ import {
   FormMessage,
 } from "../ui/form";
 import { Input } from "../ui/input";
-
+import { handleSendContact } from "../../services/users/user.service";
 const formSchema = z.object({
-  name: z.string().min(1, { message: "Vui lòng nhập tên" }),
+  username: z.string().min(1, { message: "Vui lòng nhập tên" }),
   email: z.string().email({ message: "Email không chính xác!" }),
   phone: z.string().min(1, { message: "Vui lòng nhập số điện thoại liên hệ" }),
-  message: z.string().min(1, { message: "Vui lòng thông tin muốn phản hồi" }),
+  question: z.string().min(1, { message: "Vui lòng thông tin muốn phản hồi" }),
 });
 
 const FormContact = () => {
+  const [isSent, setIsSent] = useState(false);
+  const [content, setContent] = useState();
+
+  useEffect(() => {
+    const handleCloseNoti = setTimeout(() => {
+      setIsSent(false);
+    }, 2000);
+
+    return () => clearTimeout(handleCloseNoti);
+  }, [isSent]);
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
+      username: "",
       email: "",
       phone: "",
-      message: "",
+      question: "",
     },
   });
-
-  const onSubmit = (values) => {
-    console.log("values", values);
+  const onSubmit = async (values) => {
+    const res = await handleSendContact(values);
+    setIsSent(true);
+    if (res) {
+      setContent(<p className="text-green big">Gửi Thành công!</p>);
+    } else {
+      setContent(<p className="text-red big">Gửi Thất bại!</p>);
+    }
   };
 
   return (
@@ -50,7 +66,7 @@ const FormContact = () => {
             Nhập thông tin
           </h4>
           <FormField
-            name="name"
+            name="username"
             control={form.control}
             render={({ field }) => (
               <FormItem>
@@ -100,7 +116,7 @@ const FormContact = () => {
             )}
           />
           <FormField
-            name="message"
+            name="question"
             control={form.control}
             render={({ field }) => (
               <FormItem>
@@ -115,7 +131,8 @@ const FormContact = () => {
               </FormItem>
             )}
           />
-          <div className="flex items-center justify-end">
+          <div className="flex w-full gap-5 items-center justify-end">
+            {isSent && content}
             <Button type="submit" className="rounded-full px-20">
               Gửi
             </Button>

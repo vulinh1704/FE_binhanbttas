@@ -1,9 +1,7 @@
 import axios from "axios";
 import { BASE_URL } from "../axios-client";
-import Cookies from "js-cookie";
+import { token } from "../axios-client";
 const ENDPOINT = "blogs";
-
-const token = Cookies.get("token");
 
 export const handleCreateBlogs = async (body) => {
   try {
@@ -13,5 +11,11 @@ export const handleCreateBlogs = async (body) => {
         "Content-Type": "application/json",
       },
     });
+  } catch (error) {}
+};
+
+export const handleGetBlogs = async (params) => {
+  try {
+    return await axios.get(`${BASE_URL}/${ENDPOINT}`, params);
   } catch (error) {}
 };

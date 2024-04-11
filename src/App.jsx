@@ -14,6 +14,7 @@ import NotFound from "./page/NotFound";
 import AdminLayout from "./page/Admin/AdminLayout";
 import AdminHome from "./page/Admin/AdminHome";
 import AdminCheckContact from "./page/Admin/AdminCheckContact";
+import AdminListBlogs from "./page/Admin/AdminListBlogs";
 
 function App() {
   const token = Cookies.get("token");
@@ -37,6 +38,7 @@ function App() {
           path="check-contact"
           element={<AdminCheckContact token={token} />}
         />
+        <Route path="list-blog" element={<AdminListBlogs token={token} />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>

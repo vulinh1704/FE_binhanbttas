@@ -31,7 +31,7 @@ const formSchema = z.object({
   image: z.string({ required_error: "Vui lòng thêm ảnh" }),
   content: z.any(),
   type: z.string({ required_error: "Vui lòng chọn loại bài viết" }),
-  createAt: z.any(),
+  timeAt: z.any(),
 });
 
 const AdminHome = () => {
@@ -51,7 +51,7 @@ const AdminHome = () => {
     defaultValues: {
       title: "",
       description: "",
-      createAt: currentDate,
+      timeAt: currentDate,
     },
   });
 
@@ -61,7 +61,7 @@ const AdminHome = () => {
       type: { id: values.type },
     };
     const res = await handleCreateBlogs(convertData);
-    console.log(res);
+    console.log("response", res);
   };
 
   return (

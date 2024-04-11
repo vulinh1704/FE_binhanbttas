@@ -21,6 +21,9 @@ const AdminNavbar = () => {
             <Link to="/admin">Viết Blog</Link>
           </Button>
           <Button asChild variant="ghost" className="">
+            <Link to="/admin/list-blog">Danh sách Blogs</Link>
+          </Button>
+          <Button asChild variant="ghost" className="">
             <Link to="/admin/check-contact">Check Phản hồi</Link>
           </Button>
           <Button onClick={handleRemoveToken} variant="ghost" className="">
