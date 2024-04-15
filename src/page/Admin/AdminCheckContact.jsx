@@ -26,7 +26,7 @@ const AdminCheckContact = ({ token }) => {
         {contact.map((item) => (
           <div
             key={item.id}
-            className="w-full bg-bg px-8 py-5 gap-2 flex flex-col rounded-2xl"
+            className="w-full bg-[#ffb3c6]/20 px-8 py-5 gap-2 flex flex-col rounded-2xl"
           >
             <p className="small xl:big">
               Tên người gửi:{" "}

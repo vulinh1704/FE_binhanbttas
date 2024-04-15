@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Cookies from "js-cookie";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "../../components/ui/button";
@@ -35,7 +35,6 @@ const Admin = () => {
     if (res) {
       Cookies.set("token", res.data.token);
       window.location.reload();
-      console.log(res);
     } else {
       setErrorMessage("Sai tên đăng nhập hoặc mật khẩu");
     }

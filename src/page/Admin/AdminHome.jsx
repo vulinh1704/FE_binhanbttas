@@ -5,6 +5,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
 import { Button } from "../../components/ui/button";
+import { useNavigate } from "react-router-dom";
 import {
   Form,
   FormControl,
@@ -35,6 +36,7 @@ const formSchema = z.object({
 });
 
 const AdminHome = () => {
+  const navigate = useNavigate();
   const currentDate = new Date();
   const [types, setTypes] = useState([]);
 
@@ -61,7 +63,9 @@ const AdminHome = () => {
       type: { id: values.type },
     };
     const res = await handleCreateBlogs(convertData);
-    console.log("response", res);
+    if (res) {
+      navigate("/admin/list-blog");
+    }
   };
 
   return (

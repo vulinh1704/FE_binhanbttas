@@ -1,6 +1,7 @@
 import PaginationComps from "../../components/PaginationComps";
 import React, { useState, useEffect } from "react";
 import { Link, Navigate } from "react-router-dom";
+import { handleGetTypes } from "../../services/type/type.service";
 import {
   handleGetBlogs,
   handleRemoveBlogs,
@@ -10,7 +11,17 @@ const AdminListBlogs = ({ token }) => {
   const [blogs, setBlogs] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPage] = useState(1);
-  console.log(blogs);
+  const [types, setTypes] = useState({});
+  console.log(types);
+
+  useEffect(() => {
+    const getTypes = async () => {
+      const res = await handleGetTypes();
+      setTypes(res.data);
+    };
+    getTypes();
+  }, []);
+
   useEffect(() => {
     const getBlog = async () => {
       const res = await handleGetBlogs({ params: { page: page } });
@@ -39,15 +50,15 @@ const AdminListBlogs = ({ token }) => {
       </h2>
       <div className="flex flex-col gap-3 mb-10">
         {blogs.map((item) => (
-          <div className="flex justify-between items-center w-full bg-bg px-8 py-5 rounded-2xl">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-0 justify-between items-center w-full bg-[#ffb3c6]/20 px-4 py-3 rounded-2xl">
             <div className="flex gap-5 xl:gap-10 w-full items-center ">
               <img
                 src={item.image}
                 alt=""
-                className="max-w-[150px] max-h-[150px]"
+                className="max-w-[100px] max-h-[100px] sm:max-w-[300px] sm:max-h-[300px] object-contain rounded-lg"
               />
               <div className="flex flex-col gap-3">
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-0 sm:gap-2">
                   <p className="big xl:font-bold xl:heading-5">{item.title}</p>
                   <p className="small font-normal">
                     Loại bài viết: {item.type.name}
@@ -57,15 +68,17 @@ const AdminListBlogs = ({ token }) => {
                 </div>
               </div>
             </div>
-
             <div className="flex gap-3">
-              <Button asChild className="bg-primary/70 hover:bg-primary">
+              <Button
+                asChild
+                className="bg-primary/70 hover:bg-primary sm:h-10 h-8"
+              >
                 <Link to={`/${item.id}`} className="w-full">
                   Xem chi tiết
                 </Link>
               </Button>
               <Button
-                className="bg-red/70 hover:bg-red"
+                className="bg-red/70 hover:bg-red sm:h-10 h-8"
                 onClick={() => handleRemoveBlog(item.id)}
               >
                 Xoá
