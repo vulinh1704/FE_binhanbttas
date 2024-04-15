@@ -19,3 +19,14 @@ export const handleGetBlogs = async (params) => {
     return await axios.get(`${BASE_URL}/${ENDPOINT}`, params);
   } catch (error) {}
 };
+
+export const handleRemoveBlogs = async (id) => {
+  try {
+    return await axios.delete(`${BASE_URL}/${ENDPOINT}/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
+  } catch (error) {}
+};

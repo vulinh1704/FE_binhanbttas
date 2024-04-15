@@ -24,11 +24,23 @@ const AdminCheckContact = ({ token }) => {
       </h2>
       <div className="flex flex-col gap-3">
         {contact.map((item) => (
-          <div key={item.id} className="w-full bg-bg px-8 py-5 rounded-2xl">
-            <p className="small xl:big">Tên người gửi: {item.username}</p>
-            <p className="small xl:big">Số điện thoại: {item.phone}</p>
-            <p className="small xl:big">Email: {item.email}</p>
-            <p className="small xl:big">Nội dung: {item.question}</p>
+          <div
+            key={item.id}
+            className="w-full bg-bg px-8 py-5 gap-2 flex flex-col rounded-2xl"
+          >
+            <p className="small xl:big">
+              Tên người gửi:{" "}
+              <span className="font-normal">{item.username}</span>
+            </p>
+            <p className="small xl:big">
+              Số điện thoại: <span className="font-normal">{item.phone}</span>
+            </p>
+            <p className="small xl:big">
+              Email: <span className="font-normal">{item.email}</span>
+            </p>
+            <p className="small xl:big">
+              Nội dung: <span className="font-normal">{item.question}</span>
+            </p>
           </div>
         ))}
       </div>
