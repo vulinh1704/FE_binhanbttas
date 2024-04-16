@@ -4,8 +4,17 @@ import SectionHeader from "../../../SectionHeader";
 import LandingTourItem from "../../Comps/LandingTourItem";
 import { Carousel, CarouselContent, CarouselItem } from "../../../ui/carousel";
 import { LANDING_TOUR_DATA } from "./data";
+import { useQuery } from "@tanstack/react-query";
+import { handleGetBlogs } from "../../../../services/blogs/blogs.service";
 
 const LandingTour = () => {
+  const { data } = useQuery({
+    queryKey: ["tour"],
+    queryFn: async () => {
+      const res = await handleGetBlogs();
+    },
+  });
+
   return (
     <SectionLayout>
       <SectionHeader href="/tours" des="Đi cùng người thân vừa vui vừa thích!">
