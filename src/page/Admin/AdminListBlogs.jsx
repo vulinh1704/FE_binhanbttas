@@ -7,6 +7,8 @@ import {
   handleRemoveBlogs,
 } from "../../services/blogs/blogs.service";
 import { Button } from "../../components/ui/button";
+import { formatTime } from "../../utils";
+
 const AdminListBlogs = ({ token }) => {
   const [blogs, setBlogs] = useState([]);
   const [page, setPage] = useState(1);
@@ -64,7 +66,9 @@ const AdminListBlogs = ({ token }) => {
                     Loại bài viết: {item.type.name}
                   </p>
                   <p className="small xl:big">{item.description}</p>
-                  <p className="small font-normal">Ngày tạo: {item.timeAt}</p>
+                  <p className="small font-normal">
+                    Ngày tạo: {formatTime(item.timeAt)}
+                  </p>
                 </div>
               </div>
             </div>

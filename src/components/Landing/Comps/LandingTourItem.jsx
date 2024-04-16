@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 import { Link } from "react-router-dom";
 import { Button } from "../../ui/button";
-const LandingTourItem = ({ imgBg, title, des, price, href }) => {
+const LandingTourItem = ({ image, title, description, href }) => {
   return (
     <Link to={href}>
       <motion.div
@@ -12,18 +12,22 @@ const LandingTourItem = ({ imgBg, title, des, price, href }) => {
         whileInView={{ opacity: 1, y: 0 }}
         whileHover={{ translateY: -8 }}
         transition={{ type: "spring", duration: 1.5 }}
-        className="w-full ease-in-out hover:shadow-lg gap-2 p-3 bg-bg rounded-xl flex flex-col"
+        className="w-full lg:max-w-[271px] min-h-[346px] ease-in-out hover:shadow-lg gap-2 p-2 bg-bg rounded-xl flex flex-col"
       >
-        <img src={imgBg} alt="" className="rounded-xl" />
-        <div className="flex flex-col">
-          <h2 className="heading-6 font-bold text-secondary truncate text-nowrap">
+        <img
+          src={image}
+          alt=""
+          className="rounded-xl object-cover w-full h-[230px]"
+        />
+        <div className="flex flex-col gap-2">
+          <h2 className="heading-6 font-bold text-secondary truncate text-ellipsis text-nowrap">
             {title}
           </h2>
-          <p className="big font-normal text-green line-clamp-3 text-wrap truncate ">
+          {/* <p className="big font-normal text-green line-clamp-3 text-wrap truncate ">
             VND {price}
-          </p>
-          <p className="big font-normal text-text line-clamp-3 text-wrap truncate ">
-            {des}
+          </p> */}
+          <p className="big font-normal text-text line-clamp-2 text-ellipsis text-wrap truncate ">
+            {description}
           </p>
         </div>
         <div className="w-full flex items-center justify-center">
@@ -32,9 +36,7 @@ const LandingTourItem = ({ imgBg, title, des, price, href }) => {
             variant="link"
             size="mini"
             className="hover:bg-line/70 w-fit !no-underline"
-          >
-            {/* <Link to={href}>Xem thêm</Link> */}
-          </Button>
+          ></Button>
         </div>
       </motion.div>
     </Link>

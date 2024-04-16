@@ -2,10 +2,69 @@ import React from "react";
 import SectionLayout from "../../../SectionLayout";
 import SectionHeader from "../../../SectionHeader";
 import LandingNewsItem from "../../Comps/LandingNewsItem";
-import { LANDING_NEWS_DATA } from "./data";
+import { useQuery } from "@tanstack/react-query";
+import { handleGetBlogs } from "../../../../services/blogs/blogs.service";
+import LandingLoading from "../../Comps/LandingLoading";
 
 const LandingNews = () => {
-  const newData = LANDING_NEWS_DATA.slice(0, 4);
+  const { data, isLoading } = useQuery({
+    queryKey: ["news"],
+    queryFn: async () => {
+      const res = await handleGetBlogs({
+        params: {
+          typeId: "959076434092032001",
+        },
+      });
+      if (res) {
+        console.log(res.data.list);
+        return res.data.list;
+      }
+    },
+  });
+
+  const newData = data?.slice(0, 4);
+
+  let content;
+
+  if (isLoading) {
+    content = <LandingLoading />;
+  }
+
+  if (data) {
+    if (data.length > 0) {
+      content = (
+        <>
+          <div className="hidden md:grid grid-cols-4 gap-5">
+            {data.map((item) => (
+              <LandingNewsItem
+                key={item.id}
+                href={item.id}
+                image={item.image}
+                title={item.title}
+              />
+            ))}
+          </div>
+          <div className="flex flex-col md:hidden gap-3">
+            {newData.map((item) => (
+              <LandingNewsItem
+                key={item.id}
+                href={item.id}
+                image={item.image}
+                title={item.title}
+              />
+            ))}
+          </div>
+        </>
+      );
+    } else {
+      content = (
+        <h2 className="heading-5 font-bold text-center">
+          Chưa có bài viết nào!
+        </h2>
+      );
+    }
+  }
+
   return (
     <SectionLayout>
       <SectionHeader
@@ -14,26 +73,7 @@ const LandingNews = () => {
       >
         Tin tức Bình Thuận
       </SectionHeader>
-      <div className="hidden md:grid grid-cols-4 gap-5">
-        {LANDING_NEWS_DATA.map((item) => (
-          <LandingNewsItem
-            key={item.id}
-            href={item.href}
-            img={item.img}
-            title={item.title}
-          />
-        ))}
-      </div>
-      <div className="flex flex-col md:hidden gap-3">
-        {newData.map((item) => (
-          <LandingNewsItem
-            key={item.id}
-            href={item.id}
-            img={item.img}
-            title={item.title}
-          />
-        ))}
-      </div>
+      {content}
     </SectionLayout>
   );
 };

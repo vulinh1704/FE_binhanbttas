@@ -5,3 +5,5 @@ export { default as BgBottom } from "./BgBottom";
 export { default as CrownIcon } from "./Crown";
 export { default as MoreIcon } from "./More";
 export { default as CircleIcon } from "./Circle";
+export { default as HeartIcon } from "./Heart";
+export { default as WhiteHeartIcon } from "./WhiteHeart";
