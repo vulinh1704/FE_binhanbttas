@@ -10,7 +10,7 @@ import SearchInput from "../SearchInput";
 
 const Navbar = ({ isScroll }) => {
   let location = useLocation();
-
+  console.log(isScroll);
   return (
     <header
       className={`fixed top-0 z-50 w-full shadow-2xl ${
@@ -24,26 +24,30 @@ const Navbar = ({ isScroll }) => {
             <Button
               asChild
               key={item.id}
-              className={`rounded-lg bg-transparent text-black hover:text-white ${
-                location.pathname === item.href ? "text-white bg-primary" : ""
-              }`}
+              className={`rounded-lg bg-transparent hover:bg-transparent text-black hover:text-white ${
+                location.pathname === item.href
+                  ? `text-white ${isScroll ? "text-primary" : ""}`
+                  : ""
+              } ${isScroll ? "hover:text-primary" : ""}`}
             >
               <Link to={item.href}>{item.title}</Link>
             </Button>
           ))}
           <Button
             asChild
-            className={`rounded-lg bg-transparent text-black hover:text-white ${
-              location.pathname === "/about-us" ? "text-white bg-primary" : ""
-            }`}
+            className={`rounded-lg bg-transparent hover:bg-transparent text-black hover:text-white ${
+              location.pathname === "/about-us"
+                ? `text-white ${isScroll ? "text-primary" : ""}`
+                : ""
+            } ${isScroll ? "hover:text-primary" : ""}`}
           >
             <Link to="/about-us">Về chúng tôi</Link>
           </Button>
           <Button
             asChild
-            className={`rounded-lg bg-transparent text-black hover:text-white ${
-              location.pathname === "/contact" ? "text-white bg-primary" : ""
-            }`}
+            className={`rounded-lg bg-transparent hover:bg-transparent text-black hover:text-white ${
+              location.pathname === "/contact" ? `text-primary` : ""
+            } ${isScroll ? "hover:text-primary" : ""}`}
           >
             <Link to="/contact">Phản hồi</Link>
           </Button>

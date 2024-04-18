@@ -76,7 +76,7 @@ const News = () => {
         title="Các tin tức tại Bình Thuận !"
       />
       <div className="relative w-full">
-        <SectionLayout className="mt-[-100px] xl:!px-[300px] 2xl:!px-[400px] md:px-20 !gap-0 2xl:!gap-0 justify-center items-center bg-white xl:rounded-[120px]">
+        <SectionLayout className="mt-[-100px] xl:!px-[200px] 2xl:!px-[300px] md:px-20 !gap-0 2xl:!gap-0 justify-center items-center bg-white xl:rounded-[120px]">
           {content}
         </SectionLayout>
         <img
