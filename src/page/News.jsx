@@ -29,7 +29,6 @@ const News = () => {
       }
     },
   });
-  console.log(data);
 
   let content;
 

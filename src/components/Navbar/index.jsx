@@ -10,7 +10,6 @@ import SearchInput from "../SearchInput";
 
 const Navbar = ({ isScroll }) => {
   let location = useLocation();
-  console.log(isScroll);
   return (
     <header
       className={`fixed top-0 z-50 w-full shadow-2xl ${

@@ -29,7 +29,6 @@ const Service = () => {
       }
     },
   });
-  console.log(data);
 
   let content;
 

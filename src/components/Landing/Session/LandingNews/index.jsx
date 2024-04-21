@@ -16,7 +16,6 @@ const LandingNews = () => {
         },
       });
       if (res) {
-        console.log(res.data.list);
         return res.data.list;
       }
     },

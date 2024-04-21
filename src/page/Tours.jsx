@@ -28,7 +28,6 @@ const Tours = () => {
       }
     },
   });
-  console.log(data);
 
   let content;
 

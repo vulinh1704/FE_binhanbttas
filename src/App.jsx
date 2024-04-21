@@ -15,6 +15,7 @@ import AdminLayout from "./page/Admin/AdminLayout";
 import AdminHome from "./page/Admin/AdminHome";
 import AdminCheckContact from "./page/Admin/AdminCheckContact";
 import AdminListBlogs from "./page/Admin/AdminListBlogs";
+import Search from "./page/Search";
 
 function App() {
   const token = Cookies.get("token");
@@ -25,6 +26,7 @@ function App() {
         <Route path=":id" element={<BlogDetails />} />
         <Route path="service" element={<Service />} />
         <Route path="tours" element={<Tours />} />
+        <Route path="results" element={<Search />} />
         <Route path="news" element={<News />} />
         <Route path="about-us" element={<AboutUs />} />
         <Route path="contact" element={<Contact />} />
