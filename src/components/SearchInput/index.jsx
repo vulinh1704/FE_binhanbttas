@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { createSearchParams, useNavigate } from "react-router-dom";
-import { handleGetBlogs } from "../../services/blogs/blogs.service";
 
 const SearchInput = () => {
   const [searchValue, setSearchValue] = useState("");
-  const page = localStorage.getItem("page");
   const navigate = useNavigate();
   const handleSearch = async () => {
     await navigate({
@@ -15,13 +13,6 @@ const SearchInput = () => {
         search: searchValue,
       }).toString(),
     });
-    const res = await handleGetBlogs({
-      params: {
-        page: page,
-        title: searchValue,
-      },
-    });
-    console.log(res);
   };
 
   return (
