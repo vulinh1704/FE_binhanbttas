@@ -1,17 +1,17 @@
 import React from "react";
-import LandingNewsItem from "../../Comps/LandingNewsItem";
+import LandingTourItem from "../../Comps/LandingTourItem";
+import { Carousel, CarouselContent, CarouselItem } from "../../../ui/carousel";
 import { useQuery } from "@tanstack/react-query";
 import { handleGetBlogs } from "../../../../services/blogs/blogs.service";
 import LandingLoading from "../../Comps/LandingLoading";
-import { Carousel, CarouselContent, CarouselItem } from "../../../ui/carousel";
 
-const News = () => {
+const MuiNeLanding = () => {
   const { data, isLoading } = useQuery({
-    queryKey: ["news"],
+    queryKey: ["MuiNe"],
     queryFn: async () => {
       const res = await handleGetBlogs({
         params: {
-          typeId: "962716168366620673",
+          typeId: "962715988596228097",
         },
       });
       if (res) {
@@ -19,8 +19,6 @@ const News = () => {
       }
     },
   });
-
-  const newData = data?.slice(0, 4);
 
   let content;
 
@@ -32,13 +30,15 @@ const News = () => {
     if (data.length > 0) {
       content = (
         <>
-          <div className="hidden lg:flex justify-between">
-            {newData.map((item) => (
-              <LandingNewsItem
-                key={item.id}
+          <div className="lg:grid hidden justify-center place-items-center items-center grid-cols-4 gap-[15px] w-full">
+            {data.slice(0, 4).map((item) => (
+              <LandingTourItem
                 href={item.id}
+                // price={item.price}
+                key={item.id}
                 image={item.image}
                 title={item.title}
+                description={item.description}
               />
             ))}
           </div>
@@ -50,16 +50,16 @@ const News = () => {
               className="w-full"
             >
               <CarouselContent className="pr-3 gap-3 mr-2 sm:mr-3 md:mr-5">
-                {newData.map((item) => (
+                {data.map((item) => (
                   <CarouselItem
                     key={item.id}
                     className="md:basis-1/2 lg:basis-1/4"
                   >
-                    <LandingNewsItem
-                      key={item.id}
-                      href={item.id}
+                    <LandingTourItem
+                      // price={item.price}
                       image={item.image}
                       title={item.title}
+                      description={item.description}
                     />
                   </CarouselItem>
                 ))}
@@ -76,7 +76,8 @@ const News = () => {
       );
     }
   }
+
   return <>{content}</>;
 };
 
-export default News;
+export default MuiNeLanding;

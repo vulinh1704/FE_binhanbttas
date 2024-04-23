@@ -10,6 +10,7 @@ export const LANDING_SERVICE_DATA = [
     containerClass: "",
     imgClass: "",
     textClass: "",
+    href: "/drivers",
   },
   {
     id: uuidv4(),
@@ -19,6 +20,7 @@ export const LANDING_SERVICE_DATA = [
     containerClass: "",
     imgClass: "md:order-2",
     textClass: "md:order-1 items-end",
+    href: "/tour-guide",
   },
   {
     id: uuidv4(),
@@ -28,5 +30,6 @@ export const LANDING_SERVICE_DATA = [
     containerClass: "",
     imgClass: "",
     textClass: "",
+    href: "/career",
   },
 ];

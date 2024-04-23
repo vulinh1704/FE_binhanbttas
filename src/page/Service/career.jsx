@@ -1,25 +1,25 @@
 import React, { useState } from "react";
-import bgBanner from "../images/bg-header.jpg";
-import SectionLayout from "../components/SectionLayout";
-import PageBanner from "../components/PageBanner";
-import BlogItem from "../components/BlogItem";
-import bg from "../images/contact/ngt.jpg";
-import { CircleIcon } from "../assets/icons";
-import PaginationComps from "../components/PaginationComps";
+import bgBanner from "../../images/bg-header.jpg";
+import SectionLayout from "../../components/SectionLayout";
+import PageBanner from "../../components/PageBanner";
+import BlogItem from "../../components/BlogItem";
+import bg from "../../images/contact/ngt.jpg";
+import { CircleIcon } from "../../assets/icons";
+import PaginationComps from "../../components/PaginationComps";
 import { useQuery } from "@tanstack/react-query";
-import { handleGetBlogs } from "../services/blogs/blogs.service";
-import BlogItemSkeleton from "../components/BlogItemSkeleton";
+import { handleGetBlogs } from "../../services/blogs/blogs.service";
+import BlogItemSkeleton from "../../components/BlogItemSkeleton";
 
-const Service = () => {
+const Career = () => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
   const { data, isLoading } = useQuery({
-    queryKey: ["service", page],
+    queryKey: ["career", page],
     queryFn: async () => {
       const res = await handleGetBlogs({
         params: {
-          typeId: "959076394405298177",
+          typeId: "962715869266903041",
           page: page,
         },
       });
@@ -70,9 +70,9 @@ const Service = () => {
     <>
       <PageBanner
         isShowLink={true}
-        pageName="Dịch vụ"
+        pageName="Việc làm"
         bg={bgBanner}
-        title="Các dịch vụ của chúng tôi !"
+        title="Việc làm tại Phan Thiết"
       />
       <div className="relative w-full">
         <SectionLayout className="mt-[-100px] xl:!px-[200px] 2xl:!px-[300px] md:px-20 !gap-0 2xl:!gap-0 justify-center items-center bg-white xl:rounded-[120px]">
@@ -96,4 +96,4 @@ const Service = () => {
   );
 };
 
-export default Service;
+export default Career;

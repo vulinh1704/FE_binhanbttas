@@ -1,24 +1,24 @@
 import React, { useState } from "react";
-import bgBanner from "../images/bg-header.jpg";
-import SectionLayout from "../components/SectionLayout";
-import PageBanner from "../components/PageBanner";
-import BlogItem from "../components/BlogItem";
-import bg from "../images/contact/ngt.jpg";
+import bgBanner from "../../images/bg-header.jpg";
+import SectionLayout from "../../components/SectionLayout";
+import PageBanner from "../../components/PageBanner";
+import BlogItem from "../../components/BlogItem";
+import bg from "../../images/contact/ngt.jpg";
 import { useQuery } from "@tanstack/react-query";
-import { CircleIcon } from "../assets/icons";
-import PaginationComps from "../components/PaginationComps";
-import { handleGetBlogs } from "../services/blogs/blogs.service";
-import BlogItemSkeleton from "../components/BlogItemSkeleton";
-const Tours = () => {
+import { CircleIcon } from "../../assets/icons";
+import PaginationComps from "../../components/PaginationComps";
+import { handleGetBlogs } from "../../services/blogs/blogs.service";
+import BlogItemSkeleton from "../../components/BlogItemSkeleton";
+const Sealink = () => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
   const { data, isLoading } = useQuery({
-    queryKey: ["tour", page],
+    queryKey: ["Sealink", page],
     queryFn: async () => {
       const res = await handleGetBlogs({
         params: {
-          typeId: "959076371645661185",
+          typeId: "962716057475743745",
           page: page,
         },
       });
@@ -69,9 +69,9 @@ const Tours = () => {
     <>
       <PageBanner
         isShowLink={true}
-        pageName="Du lịch"
+        pageName="Sealink"
         bg={bgBanner}
-        title="Các điểm đến hàng đầu !"
+        title="Các điểm đến tại Sealink !"
       />
       <div className="relative w-full">
         <SectionLayout className="mt-[-100px] xl:!px-[200px] 2xl:!px-[300px] md:px-20 !gap-0 2xl:!gap-0 justify-center items-center bg-white xl:rounded-[120px]">
@@ -95,4 +95,4 @@ const Tours = () => {
   );
 };
 
-export default Tours;
+export default Sealink;

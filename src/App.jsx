@@ -2,9 +2,8 @@ import "./index.css";
 import Cookies from "js-cookie";
 import { Route, Routes } from "react-router-dom";
 import Landing from "./page/Landing";
-import Service from "./page/Service";
 import Layout from "./page/Layout";
-import Tours from "./page/Tours";
+import Tours from "./page/Tours/sealink";
 import News from "./page/News/News";
 import Traffic from "./page/News/Traffic";
 import RealEstate from "./page/News/RealEstate";
@@ -18,6 +17,13 @@ import AdminHome from "./page/Admin/AdminHome";
 import AdminCheckContact from "./page/Admin/AdminCheckContact";
 import AdminListBlogs from "./page/Admin/AdminListBlogs";
 import Search from "./page/Search";
+import Career from "./page/Service/career";
+import Drivers from "./page/Service/drivers";
+import TourGuide from "./page/Service/tourGuide";
+import Sealink from "./page/Tours/sealink";
+import MuiNe from "./page/Tours/muiNe";
+import BauTrang from "./page/Tours/bauTrang";
+import HonCauIsland from "./page/Tours/honCauIsland";
 
 function App() {
   const token = Cookies.get("token");
@@ -26,8 +32,13 @@ function App() {
       <Route path="" element={<Layout />}>
         <Route path="" element={<Landing />} />
         <Route path=":id" element={<BlogDetails />} />
-        <Route path="service" element={<Service />} />
-        <Route path="tours" element={<Tours />} />
+        <Route path="career" element={<Career />} />
+        <Route path="drivers" element={<Drivers />} />
+        <Route path="tour-guide" element={<TourGuide />} />
+        <Route path="sealink" element={<Sealink />} />
+        <Route path="mui-ne" element={<MuiNe />} />
+        <Route path="bau-trang" element={<BauTrang />} />
+        <Route path="honcauisland" element={<HonCauIsland />} />
         <Route path="results" element={<Search />} />
         <Route path="news" element={<News />} />
         <Route path="traffic" element={<Traffic />} />

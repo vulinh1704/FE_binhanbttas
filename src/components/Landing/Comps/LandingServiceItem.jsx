@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-
+import { Link } from "react-router-dom";
 const LandingServiceItem = ({
   containerClass,
   imgClass,
@@ -8,9 +8,11 @@ const LandingServiceItem = ({
   title,
   des,
   img,
+  href,
 }) => {
   return (
-    <div
+    <Link
+      to={href}
       className={`flex xl:max-w-[700px] xl:gap-10 items-center gap-5 ${containerClass}`}
     >
       <motion.div
@@ -44,7 +46,7 @@ const LandingServiceItem = ({
           {des}
         </motion.p>
       </div>
-    </div>
+    </Link>
   );
 };
 
