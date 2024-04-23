@@ -2,6 +2,8 @@ import React from "react";
 import SectionLayout from "../../../SectionLayout";
 import SectionHeader from "../../../SectionHeader";
 import News from "./news";
+import Traffic from "./traffic";
+import RealEstate from "./realEstate";
 
 const LandingNews = () => {
   return (
@@ -15,10 +17,11 @@ const LandingNews = () => {
         </p>
       </div>
       <div className="flex flex-col gap-3 md:gap-5">
-        <SectionHeader href="/news">Thời sự trong ngày</SectionHeader> <News />
+        <SectionHeader href="/traffic">Giao thông</SectionHeader> <Traffic />
       </div>
       <div className="flex flex-col gap-3 md:gap-5">
-        <SectionHeader href="/news">Thời sự trong ngày</SectionHeader> <News />
+        <SectionHeader href="/real-estate">Bất động sản</SectionHeader>
+        <RealEstate />
       </div>
       <div className="flex flex-col gap-3 md:gap-5">
         <SectionHeader href="/news">Thời sự trong ngày</SectionHeader> <News />

@@ -3,13 +3,13 @@ import LandingNewsItem from "../../Comps/LandingNewsItem";
 import { useQuery } from "@tanstack/react-query";
 import { handleGetBlogs } from "../../../../services/blogs/blogs.service";
 import LandingLoading from "../../Comps/LandingLoading";
-const Traffic = () => {
+const RealEstate = () => {
   const { data, isLoading } = useQuery({
-    queryKey: ["traffic"],
+    queryKey: ["realEstate"],
     queryFn: async () => {
       const res = await handleGetBlogs({
         params: {
-          typeId: "962716147662290945",
+          typeId: "962716131661348865",
         },
       });
       if (res) {
@@ -51,4 +51,4 @@ const Traffic = () => {
   return <>{content}</>;
 };
 
-export default Traffic;
+export default RealEstate;

@@ -30,28 +30,16 @@ const News = () => {
   if (data) {
     if (data.length > 0) {
       content = (
-        <>
-          <div className="hidden md:grid grid-cols-4 gap-5">
-            {data.map((item) => (
-              <LandingNewsItem
-                key={item.id}
-                href={item.id}
-                image={item.image}
-                title={item.title}
-              />
-            ))}
-          </div>
-          <div className="flex flex-col md:hidden gap-3">
-            {newData.map((item) => (
-              <LandingNewsItem
-                key={item.id}
-                href={item.id}
-                image={item.image}
-                title={item.title}
-              />
-            ))}
-          </div>
-        </>
+        <div className="flex flex-col md:flex-row gap-3">
+          {newData.map((item) => (
+            <LandingNewsItem
+              key={item.id}
+              href={item.id}
+              image={item.image}
+              title={item.title}
+            />
+          ))}
+        </div>
       );
     } else {
       content = (

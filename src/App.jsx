@@ -5,7 +5,9 @@ import Landing from "./page/Landing";
 import Service from "./page/Service";
 import Layout from "./page/Layout";
 import Tours from "./page/Tours";
-import News from "./page/News";
+import News from "./page/News/News";
+import Traffic from "./page/News/Traffic";
+import RealEstate from "./page/News/RealEstate";
 import AdminLogin from "./page/Admin/AdminLogin";
 import Contact from "./page/Contact";
 import AboutUs from "./page/AboutUs";
@@ -28,6 +30,8 @@ function App() {
         <Route path="tours" element={<Tours />} />
         <Route path="results" element={<Search />} />
         <Route path="news" element={<News />} />
+        <Route path="traffic" element={<Traffic />} />
+        <Route path="real-estate" element={<RealEstate />} />
         <Route path="about-us" element={<AboutUs />} />
         <Route path="contact" element={<Contact />} />
       </Route>
