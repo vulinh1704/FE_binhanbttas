@@ -9,9 +9,13 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../ui/accordion";
-import { LIST_MENU } from "../Navbar/data";
 import { ArrowRightIcon } from "../../assets/icons";
 import { SheetClose } from "../ui/sheet";
+import {
+  LIST_NEWS_MENU,
+  LIST_SERVICE_MENU,
+  LIST_TOUR_MENU,
+} from "../Navbar/data";
 
 const Sidebar = () => {
   return (
@@ -21,21 +25,60 @@ const Sidebar = () => {
         <SearchInput />
       </div>
       <div className="flex flex-col gap-3">
-        {LIST_MENU.map((item) => (
-          <SheetClose asChild>
-            <Button
-              key={item.id}
-              asChild
-              variant="ghost"
-              className="text-lg text-black justify-between border-b border-line"
-            >
-              <Link to={item.href}>
-                {item.title}{" "}
-                <ArrowRightIcon className="max-w-[14px] max-h-[14px]" />
-              </Link>
-            </Button>
-          </SheetClose>
-        ))}
+        <SheetClose asChild>
+          <Button
+            asChild
+            variant="ghost"
+            className="text-lg text-black justify-between border-b border-line"
+          >
+            <Link to="/">
+              Trang chủ
+              <ArrowRightIcon className="max-w-[14px] max-h-[14px]" />
+            </Link>
+          </Button>
+        </SheetClose>
+        <Accordion type="single" collapsible className="w-full">
+          <AccordionItem value="item-1">
+            <AccordionTrigger className="text-lg text-black">
+              Du lịch
+            </AccordionTrigger>
+            {LIST_TOUR_MENU.map((item) => (
+              <AccordionContent>
+                <SheetClose asChild>
+                  <Link to={item.href}>{item.title}</Link>
+                </SheetClose>
+              </AccordionContent>
+            ))}
+          </AccordionItem>
+        </Accordion>
+        <Accordion type="single" collapsible className="w-full">
+          <AccordionItem value="item-1">
+            <AccordionTrigger className="text-lg text-black">
+              Dịch vụ
+            </AccordionTrigger>
+            {LIST_SERVICE_MENU.map((item) => (
+              <AccordionContent>
+                <SheetClose asChild>
+                  <Link to={item.href}>{item.title}</Link>
+                </SheetClose>
+              </AccordionContent>
+            ))}
+          </AccordionItem>
+        </Accordion>
+        <Accordion type="single" collapsible className="w-full">
+          <AccordionItem value="item-1">
+            <AccordionTrigger className="text-lg text-black">
+              Tin tức
+            </AccordionTrigger>
+            {LIST_NEWS_MENU.map((item) => (
+              <AccordionContent>
+                <SheetClose asChild>
+                  <Link to={item.href}>{item.title}</Link>
+                </SheetClose>
+              </AccordionContent>
+            ))}
+          </AccordionItem>
+        </Accordion>
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
             <AccordionTrigger className="text-lg text-black">

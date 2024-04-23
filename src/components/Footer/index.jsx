@@ -24,8 +24,8 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex gap-10 flex-col xl:flex-row">
-            <div className="flex gap-10 justify-around">
-              <div className="flex flex-col gap-5">
+            <div className="flex gap-10">
+              {/* <div className="flex flex-col gap-5">
                 <div className="w-[150px]">
                   <h2 className="big text-text text-center">Trang</h2>
                 </div>
@@ -40,8 +40,8 @@ const Footer = () => {
                     </Button>
                   ))}
                 </div>
-              </div>
-              <div className="flex flex-col gap-5">
+              </div> */}
+              <div className="flex flex-col gap-5 pl-7">
                 <div className="w-[150px]">
                   <h2 className="big text-text text-center">Mạng xã hội</h2>
                 </div>
