@@ -53,7 +53,10 @@ const LandingTour = () => {
             >
               <CarouselContent className="pr-3 gap-3 mr-2 sm:mr-3 md:mr-5">
                 {data.map((item) => (
-                  <CarouselItem key={item.id} className="md:basis-1/2">
+                  <CarouselItem
+                    key={item.id}
+                    className="md:basis-1/2 lg:basis-1/4"
+                  >
                     <LandingTourItem
                       // price={item.price}
                       image={item.image}
