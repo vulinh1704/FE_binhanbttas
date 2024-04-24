@@ -21,7 +21,7 @@ const Drivers = () => {
     queryFn: async () => {
       const res = await handleGetBlogs({
         params: {
-          typeId: "962715794237390849",
+          typeId: "963059724886966273",
           page: page,
         },
       });

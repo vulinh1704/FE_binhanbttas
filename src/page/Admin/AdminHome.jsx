@@ -32,7 +32,7 @@ const formSchema = z.object({
   image: z.string({ required_error: "Vui lòng thêm ảnh" }),
   content: z.any(),
   type: z.string({ required_error: "Vui lòng chọn loại bài viết" }),
-  price: z.string(),
+  // price: z.string(),
   timeAt: z.any(),
 });
 
@@ -74,6 +74,8 @@ const AdminHome = () => {
     form.watch("type") === "962715988596228097" ||
     form.watch("type") === "962716029882793985" ||
     form.watch("type") === "962716057475743745";
+
+  console.log(1212, form.watch("content"));
 
   return (
     <div className="pt-[150px] w-full flex items-center justify-center px-4 mx-auto xl:max-w-[1410px]">
@@ -177,7 +179,7 @@ const AdminHome = () => {
                 </FormItem>
               )}
             />
-            {isShowPrice && (
+            {/* {isShowPrice && (
               <FormField
                 name="price"
                 control={form.control}
@@ -197,7 +199,7 @@ const AdminHome = () => {
                   </FormItem>
                 )}
               />
-            )}
+            )} */}
 
             <FormField
               name="content"

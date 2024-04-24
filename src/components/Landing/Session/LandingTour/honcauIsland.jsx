@@ -11,7 +11,7 @@ const HonCauIslandLanding = () => {
     queryFn: async () => {
       const res = await handleGetBlogs({
         params: {
-          typeId: "962715967235555329",
+          typeId: "963060231356088321",
         },
       });
       if (res) {

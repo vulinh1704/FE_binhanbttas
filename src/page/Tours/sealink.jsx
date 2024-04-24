@@ -21,7 +21,7 @@ const Sealink = () => {
     queryFn: async () => {
       const res = await handleGetBlogs({
         params: {
-          typeId: "962716057475743745",
+          typeId: "963059320211996673",
           page: page,
         },
       });

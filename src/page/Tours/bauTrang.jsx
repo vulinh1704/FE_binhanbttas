@@ -21,7 +21,7 @@ const BauTrang = () => {
     queryFn: async () => {
       const res = await handleGetBlogs({
         params: {
-          typeId: "962716029882793985",
+          typeId: "963055738547077121",
           page: page,
         },
       });

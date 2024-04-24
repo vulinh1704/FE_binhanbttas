@@ -21,7 +21,7 @@ const MuiNe = () => {
     queryFn: async () => {
       const res = await handleGetBlogs({
         params: {
-          typeId: "962715988596228097",
+          typeId: "963055416245944321",
           page: page,
         },
       });
