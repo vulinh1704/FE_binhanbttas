@@ -13,8 +13,10 @@ import { SOCIAL_MEDIA } from "../components/Footer/data";
 import zl from "../images/footer-img/zalo.png";
 import qrzl from "../images/footer-img/qrzalo.jpg";
 import FormContact from "../components/Form/FormContact";
-
+import { useTranslation } from "react-i18next";
 const Contact = () => {
+  const { t } = useTranslation();
+
   return (
     <SectionLayout className="mt-[100px] lg:flex-row">
       <motion.div
@@ -24,7 +26,7 @@ const Contact = () => {
         className="flex flex-col relative p-10 gap-3 lg:gap-8 w-full lg:max-w-[500px]"
       >
         <h2 className="heading-5 lg:heading-2 font-roboto text-secondary lg:font-bold font-bold">
-          Phản hồi
+          {t("navbar.contact")}
         </h2>
         <div className="flex flex-col gap-1 lg:gap-5">
           <p className="big lg:heading-5">+84 867 046 286</p>

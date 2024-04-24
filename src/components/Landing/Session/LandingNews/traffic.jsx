@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Carousel, CarouselContent, CarouselItem } from "../../../ui/carousel";
 import { handleGetBlogs } from "../../../../services/blogs/blogs.service";
 import LandingLoading from "../../Comps/LandingLoading";
+import EmptyData from "../../../EmptyData";
 const Traffic = () => {
   const { data, isLoading } = useQuery({
     queryKey: ["traffic"],
@@ -68,11 +69,7 @@ const Traffic = () => {
         </>
       );
     } else {
-      content = (
-        <h2 className="big font-bold flex justify-center text-center">
-          Chưa có bài viết nào!
-        </h2>
-      );
+      content = <EmptyData />;
     }
   }
   return <>{content}</>;

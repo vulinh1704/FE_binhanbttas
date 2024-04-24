@@ -3,15 +3,17 @@ import { Bg, BgBottom } from "../../../../assets/icons";
 import React from "react";
 import LandingServiceItem from "../../Comps/LandingServiceItem";
 import { LANDING_SERVICE_DATA } from "./data";
-
+import { useTranslation } from "react-i18next";
 const LandingService = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="w-full mt-10">
       <Bg className="w-full h-10 hidden md:block" />
       <SectionLayout className="bg-background md:pb-[100px]">
         <div className="flex flex-col gap-3 md:gap-5">
           <h2 className="heading-6 text-secondary md:heading-4 font-bold md:font-bold text-center">
-            Các dịch vụ của chúng tôi
+            {t("landing.service.title")}
           </h2>
         </div>
         <div className="relative flex items-center md:justify-center">

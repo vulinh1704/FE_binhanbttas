@@ -5,11 +5,13 @@ import { BANNER } from "./data";
 import { Button } from "../../../ui/button";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const Banner = () => {
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
   );
+  const { t } = useTranslation();
 
   return (
     <div className="w-full mt-[75px] xl:mt-0 xl:h-[810px] h-[540px] relative ">
@@ -45,18 +47,10 @@ const Banner = () => {
           </CarouselContent>
         </Carousel>
       </div>
-      <div className="absolute flex flex-col gap-2 xl:gap-8 top-[40%] z-[2] justify-center items-center -translate-x-1/2 left-1/2 translate-2-1/2">
-        <h2 className="hidden xl:block heading-2 w-full text-nowrap font-roboto text-white">
-          <strong>Sẵn sàng cho cuộc phiêu lưu tiếp theo của bạn !</strong>
+      <div className="absolute w-full flex flex-col gap-2 xl:gap-8 top-[40%] z-[2] justify-center items-center -translate-x-1/2 left-1/2 translate-2-1/2">
+        <h2 className="block heading-5 font-bold xl:font-bold xl:heading-2 w-[308px] xl:w-full text-center font-roboto text-white">
+          {t("landing.banner.title")}
         </h2>
-        <h2 className="heading-5  block xl:hidden w-full text-center text-nowrap font-roboto text-white">
-          <strong>
-            Sẵn sàng cho cuộc phiêu lưu <br /> tiếp theo của bạn !
-          </strong>
-        </h2>
-        <p className="heading-6 xl:heading-3 text-white font-roboto">
-          Get ready for your next adventure !
-        </p>
         <motion.button
           whileHover={{ scale: 1.1 }}
           transition={{ type: "spring", stiffness: 500 }}
@@ -66,7 +60,7 @@ const Banner = () => {
             asChild
             className="xl:px-[50px] xl:h-[65px] xl:mt-5 xl:py-7 xl:text-xl px-[20px] py-4 bg-primary hover:bg-primary"
           >
-            <Link to="/contact">Liên hệ với chúng tôi</Link>
+            <Link to="/contact">{t("landing.banner.contact")}</Link>
           </Button>
         </motion.button>
       </div>

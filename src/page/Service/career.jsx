@@ -9,8 +9,10 @@ import PaginationComps from "../../components/PaginationComps";
 import { useQuery } from "@tanstack/react-query";
 import { handleGetBlogs } from "../../services/blogs/blogs.service";
 import BlogItemSkeleton from "../../components/BlogItemSkeleton";
+import { useTranslation } from "react-i18next";
 
 const Career = () => {
+  const { t } = useTranslation();
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
@@ -60,7 +62,7 @@ const Career = () => {
     } else {
       content = (
         <h2 className="heading-5 relative z-20 font-bold text-center">
-          Chưa có bài viết nào!
+          {t("main.empty")}
         </h2>
       );
     }
@@ -70,9 +72,9 @@ const Career = () => {
     <>
       <PageBanner
         isShowLink={true}
-        pageName="Việc làm"
+        pageName={t("career.pageName")}
         bg={bgBanner}
-        title="Việc làm tại Phan Thiết"
+        title={t("career.title")}
       />
       <div className="relative w-full">
         <SectionLayout className="mt-[-100px] xl:!px-[200px] 2xl:!px-[300px] md:px-20 !gap-0 2xl:!gap-0 justify-center items-center bg-white xl:rounded-[120px]">

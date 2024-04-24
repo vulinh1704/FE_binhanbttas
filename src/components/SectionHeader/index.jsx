@@ -2,8 +2,11 @@ import React from "react";
 import { Button } from "../ui/button";
 import { ArrowRightIcon } from "../../assets/icons";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const SectionHeader = ({ isShowButton = true, href, children, titleClass }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="flex md:items-center items-start flex-col md:flex-row justify-between">
       <div className="flex flex-col md:gap-4 w-full">
@@ -18,7 +21,7 @@ const SectionHeader = ({ isShowButton = true, href, children, titleClass }) => {
           className="md:text-lg items-center hover:bg-primary/70 hover:text-white justify-center gap-1"
         >
           <Link to={href}>
-            Xem thêm
+            {t("main.seeMore")}
             <ArrowRightIcon className="max-h-3 mt-1" />
           </Link>
         </Button>

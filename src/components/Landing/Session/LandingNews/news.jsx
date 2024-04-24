@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { handleGetBlogs } from "../../../../services/blogs/blogs.service";
 import LandingLoading from "../../Comps/LandingLoading";
 import { Carousel, CarouselContent, CarouselItem } from "../../../ui/carousel";
+import EmptyData from "../../../EmptyData";
 
 const News = () => {
   const { data, isLoading } = useQuery({
@@ -69,11 +70,7 @@ const News = () => {
         </>
       );
     } else {
-      content = (
-        <h2 className="big font-bold flex justify-center text-center">
-          Chưa có bài viết nào!
-        </h2>
-      );
+      content = <EmptyData />;
     }
   }
   return <>{content}</>;

@@ -4,8 +4,8 @@ import { v4 as uuidv4 } from "uuid";
 export const LANDING_SERVICE_DATA = [
   {
     id: uuidv4(),
-    title: "Tài xế lái xe",
-    des: "Nhậu say, call ngay +84 867 046 286",
+    title: "driver",
+    des: "des1",
     img: img,
     containerClass: "",
     imgClass: "",
@@ -14,8 +14,8 @@ export const LANDING_SERVICE_DATA = [
   },
   {
     id: uuidv4(),
-    title: "Hướng dẫn viên du lịch tự do",
-    des: "Hãy để chúng tôi, đồng hành cùng bạn trong mọi chuyến đi.",
+    title: "tourGuide",
+    des: "des2",
     img: img,
     containerClass: "",
     imgClass: "md:order-2",
@@ -24,8 +24,8 @@ export const LANDING_SERVICE_DATA = [
   },
   {
     id: uuidv4(),
-    title: "Việc làm tại Phan Thiết - Bình Thuận",
-    des: "Còn chần chừ gì nữa, tìm việc ngay thôi nào!",
+    title: "career",
+    des: "des3",
     img: img,
     containerClass: "",
     imgClass: "",

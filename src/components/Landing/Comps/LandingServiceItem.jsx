@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 const LandingServiceItem = ({
   containerClass,
   imgClass,
@@ -10,6 +11,8 @@ const LandingServiceItem = ({
   img,
   href,
 }) => {
+  const { t } = useTranslation();
+
   return (
     <Link
       to={href}
@@ -34,7 +37,7 @@ const LandingServiceItem = ({
           transition={{ duration: 0.5 }}
           className="heading-6 xl:heading-4 xl:leading-9 text-secondary"
         >
-          <strong>{title}</strong>
+          <strong>{t(`landing.service.${title}`)}</strong>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 10 }}
@@ -43,7 +46,7 @@ const LandingServiceItem = ({
           transition={{ duration: 0.5 }}
           className="big xl:heading-5 font-normal"
         >
-          {des}
+          {t(`landing.service.${des}`)}
         </motion.p>
       </div>
     </Link>

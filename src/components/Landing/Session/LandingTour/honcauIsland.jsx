@@ -4,7 +4,7 @@ import { Carousel, CarouselContent, CarouselItem } from "../../../ui/carousel";
 import { useQuery } from "@tanstack/react-query";
 import { handleGetBlogs } from "../../../../services/blogs/blogs.service";
 import LandingLoading from "../../Comps/LandingLoading";
-
+import EmptyData from "../../../EmptyData";
 const HonCauIslandLanding = () => {
   const { data, isLoading } = useQuery({
     queryKey: ["HonCauIsland"],
@@ -69,11 +69,7 @@ const HonCauIslandLanding = () => {
         </>
       );
     } else {
-      content = (
-        <h2 className="big font-bold flex justify-center text-center">
-          Chưa có bài viết nào!
-        </h2>
-      );
+      content = <EmptyData />;
     }
   }
 

@@ -12,9 +12,13 @@ import {
   HoverCardTrigger,
 } from "../../components/ui/hover-card";
 import { LIST_TOUR_MENU, LIST_SERVICE_MENU, LIST_NEWS_MENU } from "./data";
+import { useTranslation } from "react-i18next";
+import TransLanguage from "../TransLanguage";
 
 const Navbar = ({ isScroll }) => {
   let location = useLocation();
+  const { t } = useTranslation();
+
   return (
     <header
       className={`fixed top-0 z-50 w-full shadow-2xl ${
@@ -32,7 +36,7 @@ const Navbar = ({ isScroll }) => {
                 : ""
             } ${isScroll ? "hover:text-primary" : ""}`}
           >
-            <Link to="/">Trang chủ</Link>
+            <Link to="/">{t("navbar.home")}</Link>
           </Button>
           <HoverCard openDelay={0} closeDelay={0}>
             <HoverCardTrigger asChild>
@@ -46,11 +50,11 @@ const Navbar = ({ isScroll }) => {
                     : ""
                 } ${isScroll ? "hover:text-primary" : ""}`}
               >
-                Du lịch
+                {t("navbar.tour")}
               </Button>
             </HoverCardTrigger>
             <HoverCardContent className="px-0">
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-2">
                 {LIST_TOUR_MENU.map((item) => (
                   <Link
                     to={item.href}
@@ -60,7 +64,7 @@ const Navbar = ({ isScroll }) => {
                         : ""
                     }`}
                   >
-                    {item.title}
+                    {t(`navbar.${item.title}`)}
                   </Link>
                 ))}
               </div>
@@ -77,11 +81,11 @@ const Navbar = ({ isScroll }) => {
                     : ""
                 } ${isScroll ? "hover:text-primary" : ""}`}
               >
-                Dịch vụ
+                {t("navbar.service")}
               </Button>
             </HoverCardTrigger>
             <HoverCardContent className="px-0">
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-2">
                 {LIST_SERVICE_MENU.map((item) => (
                   <Link
                     to={item.href}
@@ -91,7 +95,7 @@ const Navbar = ({ isScroll }) => {
                         : ""
                     }`}
                   >
-                    {item.title}
+                    {t(`navbar.${item.title}`)}
                   </Link>
                 ))}
               </div>
@@ -108,11 +112,11 @@ const Navbar = ({ isScroll }) => {
                     : ""
                 } ${isScroll ? "hover:text-primary" : ""}`}
               >
-                Tin tức
+                {t("navbar.news")}
               </Button>
             </HoverCardTrigger>
             <HoverCardContent className="px-0">
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-2">
                 {LIST_NEWS_MENU.map((item) => (
                   <Link
                     to={item.href}
@@ -122,7 +126,7 @@ const Navbar = ({ isScroll }) => {
                         : ""
                     }`}
                   >
-                    {item.title}
+                    {t(`navbar.${item.title}`)}
                   </Link>
                 ))}
               </div>
@@ -136,7 +140,7 @@ const Navbar = ({ isScroll }) => {
                 : ""
             } ${isScroll ? "hover:text-primary" : ""}`}
           >
-            <Link to="/about-us">Về chúng tôi</Link>
+            <Link to="/about-us">{t("navbar.aboutUs")}</Link>
           </Button>
           <Button
             asChild
@@ -144,10 +148,13 @@ const Navbar = ({ isScroll }) => {
               location.pathname === "/contact" ? `text-primary` : ""
             } ${isScroll ? "hover:text-primary" : ""}`}
           >
-            <Link to="/contact">Phản hồi</Link>
+            <Link to="/contact">{t("navbar.contact")}</Link>
           </Button>
         </div>
-        <SearchInput />
+        <div className="flex items-center gap-2">
+          <SearchInput />
+          <TransLanguage />
+        </div>
       </div>
       <div className="flex xl:hidden border-b border-line items-center justify-between px-4 py-3">
         <Logo />

@@ -32,6 +32,7 @@ const formSchema = z.object({
   image: z.string({ required_error: "Vui lòng thêm ảnh" }),
   content: z.any(),
   type: z.string({ required_error: "Vui lòng chọn loại bài viết" }),
+  price: z.string(),
   timeAt: z.any(),
 });
 
@@ -67,6 +68,12 @@ const AdminHome = () => {
       navigate("/admin/list-blog");
     }
   };
+
+  const isShowPrice =
+    form.watch("type") === "962715967235555329" ||
+    form.watch("type") === "962715988596228097" ||
+    form.watch("type") === "962716029882793985" ||
+    form.watch("type") === "962716057475743745";
 
   return (
     <div className="pt-[150px] w-full flex items-center justify-center px-4 mx-auto xl:max-w-[1410px]">
@@ -170,6 +177,28 @@ const AdminHome = () => {
                 </FormItem>
               )}
             />
+            {isShowPrice && (
+              <FormField
+                name="price"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <>
+                        <h2 className="small xl:big">Nhập Giá (VND)</h2>
+                        <Input
+                          placeholder="Nhập giá"
+                          onChange={(value) => field.onChange(value)}
+                          className="w-full bg-white"
+                        />
+                      </>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            )}
+
             <FormField
               name="content"
               control={form.control}

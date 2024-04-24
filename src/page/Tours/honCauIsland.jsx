@@ -9,7 +9,10 @@ import { CircleIcon } from "../../assets/icons";
 import PaginationComps from "../../components/PaginationComps";
 import { handleGetBlogs } from "../../services/blogs/blogs.service";
 import BlogItemSkeleton from "../../components/BlogItemSkeleton";
+import { useTranslation } from "react-i18next";
+
 const HonCauIsland = () => {
+  const { t } = useTranslation();
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
@@ -59,7 +62,7 @@ const HonCauIsland = () => {
     } else {
       content = (
         <h2 className="heading-5 relative z-20 font-bold text-center">
-          Chưa có bài viết nào!
+          {t("main.empty")}
         </h2>
       );
     }
@@ -69,9 +72,9 @@ const HonCauIsland = () => {
     <>
       <PageBanner
         isShowLink={true}
-        pageName="Đảo Hòn Cau"
+        pageName={t("honCau.pageName")}
         bg={bgBanner}
-        title="Các điểm đến tại Đảo Hòn Cau!"
+        title={t("honCau.title")}
       />
       <div className="relative w-full">
         <SectionLayout className="mt-[-100px] xl:!px-[200px] 2xl:!px-[300px] md:px-20 !gap-0 2xl:!gap-0 justify-center items-center bg-white xl:rounded-[120px]">

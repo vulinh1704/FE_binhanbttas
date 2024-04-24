@@ -5,9 +5,9 @@ import Backend from "i18next-http-backend";
 
 i18n.use(Backend).use(LanguageDetector).use(initReactI18next).init({
   debug: true,
-  fallbackLang: "vi",
+  fallbackLang: "en",
 });
 
-i18n.changeLanguage("en");
+i18n.changeLanguage("vi");
 
 export default i18n;
