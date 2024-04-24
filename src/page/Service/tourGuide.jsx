@@ -21,7 +21,7 @@ const TourGuide = () => {
     queryFn: async () => {
       const res = await handleGetBlogs({
         params: {
-          typeId: "962715834854932481",
+          typeId: "963080650798333953",
           page: page,
         },
       });

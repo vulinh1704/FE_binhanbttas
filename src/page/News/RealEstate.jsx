@@ -20,7 +20,7 @@ const RealEstate = () => {
     queryFn: async () => {
       const res = await handleGetBlogs({
         params: {
-          typeId: "962716131661348865",
+          typeId: "963080968279261185",
           page: page,
         },
       });

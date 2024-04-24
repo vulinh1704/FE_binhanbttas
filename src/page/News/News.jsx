@@ -20,7 +20,7 @@ const News = () => {
     queryFn: async () => {
       const res = await handleGetBlogs({
         params: {
-          typeId: "962716168366620673",
+          typeId: "963080764586000385",
           page: page,
         },
       });

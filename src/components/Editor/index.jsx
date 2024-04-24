@@ -6,7 +6,7 @@ const Editor = ({ onChange }) => {
   const reactQuillRef = useRef(null);
   return (
     <ReactQuill
-      className="bg-white "
+      className="bg-white h-[400px]"
       ref={reactQuillRef}
       theme="snow"
       placeholder="Start writing..."

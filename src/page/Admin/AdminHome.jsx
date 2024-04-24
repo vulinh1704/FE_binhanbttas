@@ -16,6 +16,7 @@ import {
 import { handleCreateBlogs } from "../../services/blogs/blogs.service";
 import { Input } from "../../components/ui/input";
 import { handleGetTypes } from "../../services/type/type.service";
+import pako from "pako";
 import {
   Select,
   SelectContent,
@@ -37,6 +38,7 @@ const formSchema = z.object({
 });
 
 const AdminHome = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const currentDate = new Date();
   const [types, setTypes] = useState([]);
@@ -63,19 +65,24 @@ const AdminHome = () => {
       ...values,
       type: { id: values.type },
     };
+    const compressedData = JSON.stringify(
+      pako.deflate(JSON.stringify(convertData.content))
+    );
+
+    convertData.content = compressedData;
+    setIsLoading(true);
     const res = await handleCreateBlogs(convertData);
     if (res) {
       navigate("/admin/list-blog");
+      setIsLoading(false);
     }
   };
 
   const isShowPrice =
-    form.watch("type") === "962715967235555329" ||
-    form.watch("type") === "962715988596228097" ||
-    form.watch("type") === "962716029882793985" ||
-    form.watch("type") === "962716057475743745";
-
-  console.log(1212, form.watch("content"));
+    form.watch("type") === "963055416245944321" ||
+    form.watch("type") === "963055738547077121" ||
+    form.watch("type") === "963059320211996673" ||
+    form.watch("type") === "963060231356088321";
 
   return (
     <div className="pt-[150px] w-full flex items-center justify-center px-4 mx-auto xl:max-w-[1410px]">
@@ -179,7 +186,7 @@ const AdminHome = () => {
                 </FormItem>
               )}
             />
-            {/* {isShowPrice && (
+            {isShowPrice && (
               <FormField
                 name="price"
                 control={form.control}
@@ -189,6 +196,7 @@ const AdminHome = () => {
                       <>
                         <h2 className="small xl:big">Nhập Giá (VND)</h2>
                         <Input
+                          type="number"
                           placeholder="Nhập giá"
                           onChange={(value) => field.onChange(value)}
                           className="w-full bg-white"
@@ -199,7 +207,7 @@ const AdminHome = () => {
                   </FormItem>
                 )}
               />
-            )} */}
+            )}
 
             <FormField
               name="content"
@@ -218,9 +226,15 @@ const AdminHome = () => {
                 </FormItem>
               )}
             />
-            <div className="flex items-center justify-end">
-              <Button type="submit" className="rounded-full px-20">
-                Tạo
+            <div className="flex items-center mt-[70px] justify-end">
+              <Button
+                type="submit"
+                disabled={isLoading}
+                className={`rounded-full px-20 ${
+                  isLoading && "bg-line hover:bg-line"
+                }`}
+              >
+                {isLoading ? <div className="loading" /> : "Tạo"}
               </Button>
             </div>
           </div>

@@ -21,7 +21,7 @@ const Career = () => {
     queryFn: async () => {
       const res = await handleGetBlogs({
         params: {
-          typeId: "963059595393630209",
+          typeId: "963080530695225345",
           page: page,
         },
       });

@@ -11,7 +11,7 @@ const Traffic = () => {
     queryFn: async () => {
       const res = await handleGetBlogs({
         params: {
-          typeId: "962716147662290945",
+          typeId: "963080869572542465",
         },
       });
       if (res) {
