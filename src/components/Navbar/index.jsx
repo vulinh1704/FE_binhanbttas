@@ -27,7 +27,7 @@ const Navbar = ({ isScroll }) => {
     >
       <div className="xl:flex items-center  justify-between hidden px-[100px] 2xl:px-[200px] py-4 ">
         <Logo />
-        <div className="flex gap-3">
+        <div className="flex">
           <Button
             asChild
             className={`rounded-lg bg-transparent hover:bg-transparent text-black hover:text-white ${
