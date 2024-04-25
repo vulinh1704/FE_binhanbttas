@@ -26,6 +26,7 @@ import {
 } from "../../components/ui/select";
 import Editor from "../../components/Editor";
 import InputImg from "../../components/InputImg";
+import { handleGetBlog } from "../../services/blogs/blogs.service";
 
 const formSchema = z.object({
   title: z.string().min(1, { message: "Vui lòng nhập Tiêu đề" }),
@@ -36,12 +37,12 @@ const formSchema = z.object({
   price: z.string(),
   timeAt: z.any(),
 });
-const EditBlog = () => {
+const EditBlog = ({ id }) => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const currentDate = new Date();
   const [types, setTypes] = useState([]);
-
+  const [data, setData] = useState({});
   useEffect(() => {
     const getTypes = async () => {
       const res = await handleGetTypes();
@@ -50,12 +51,36 @@ const EditBlog = () => {
     getTypes();
   }, []);
 
+  useEffect(() => {
+    const getBlog = async () => {
+      const res = await handleGetBlog(id);
+      if (res) {
+        const decompressedData = JSON.parse(
+          pako.inflate(JSON.parse(res.data.content), {
+            to: "string",
+          })
+        );
+        res.data.content = decompressedData;
+        console.log(typeof res.data.content);
+        console.log(1212, res.data.content.toString());
+        setData(res.data);
+      }
+    };
+    getBlog();
+  }, [id]);
+
+  console.log(data);
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      title: "",
-      description: "",
+      title: data.title,
+      description: data.description,
       timeAt: currentDate,
+      image: data.image,
+      content: data.content,
+      type: { id: data.type },
+      price: data.price,
     },
   });
 
@@ -82,118 +107,35 @@ const EditBlog = () => {
     form.watch("type") === "963055738547077121" ||
     form.watch("type") === "963059320211996673" ||
     form.watch("type") === "963060231356088321";
+
   return (
-    <Form {...form}>
-      <motion.form
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, type: "spring" }}
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="flex justify-between w-full"
-      >
-        <div className="w-full rounded-[20px] bg-bg p-8 flex flex-col gap-3">
-          <h4 className="heading-4 font-bold text-secondary mb-5">
-            Tạo bài viết mới
-          </h4>
-          <FormField
-            name="title"
-            control={form.control}
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <>
-                    <h2 className="small xl:big">
-                      Nhập Tiêu đề bài viết <span className="text-red">*</span>
-                    </h2>
-                    <Input
-                      placeholder="Nhập Tiêu đề bài viết"
-                      onChange={(value) => field.onChange(value)}
-                      className="w-full bg-white"
-                    />
-                  </>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            name="description"
-            control={form.control}
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <>
-                    <h2 className="small xl:big">
-                      Nhập mô tả bài viết <span className="text-red">*</span>
-                    </h2>
-                    <Input
-                      placeholder="Nhập mô tả"
-                      onChange={(value) => field.onChange(value)}
-                      className="w-full bg-white"
-                    />
-                  </>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            name="image"
-            control={form.control}
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <>
-                    <h2 className="small xl:big">
-                      Thêm ảnh bìa <span className="text-red">*</span>
-                    </h2>
-                    <InputImg onChange={field.onChange} />
-                  </>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            name="type"
-            control={form.control}
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <>
-                    <h2 className="small xl:big">
-                      Chọn loại bài viết <span className="text-red">*</span>
-                    </h2>
-                    <Select onValueChange={(value) => field.onChange(value)}>
-                      <SelectTrigger className="rounded-full">
-                        <SelectValue placeholder="Chọn loại bài viết" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {types.map((item) => (
-                          <SelectItem key={item.id} value={item.id}>
-                            {item.name}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          {isShowPrice && (
+    <div className="max-h-[100vh] w-[1300px] overflow-y-auto">
+      <Form {...form}>
+        <motion.form
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, type: "spring" }}
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="flex justify-between w-full"
+        >
+          <div className="w-full rounded-[20px] bg-bg p-8 flex flex-col gap-3">
+            <h4 className="heading-4 font-bold text-secondary mb-5">
+              Tạo bài viết mới
+            </h4>
             <FormField
-              name="price"
+              name="title"
               control={form.control}
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
                     <>
-                      <h2 className="small xl:big">Nhập Giá (VND)</h2>
+                      <h2 className="small xl:big">
+                        Nhập Tiêu đề bài viết{" "}
+                        <span className="text-red">*</span>
+                      </h2>
                       <Input
-                        type="number"
-                        placeholder="Nhập giá"
+                        defaultValue={form.value}
+                        placeholder="Nhập Tiêu đề bài viết"
                         onChange={(value) => field.onChange(value)}
                         className="w-full bg-white"
                       />
@@ -203,39 +145,130 @@ const EditBlog = () => {
                 </FormItem>
               )}
             />
-          )}
-
-          <FormField
-            name="content"
-            control={form.control}
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <>
-                    <h2 className="small xl:big">
-                      Nhập nội dung <span className="text-red">*</span>
-                    </h2>
-                    <Editor onChange={(value) => field.onChange(value)} />
-                  </>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
+            <FormField
+              name="description"
+              control={form.control}
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <>
+                      <h2 className="small xl:big">
+                        Nhập mô tả bài viết <span className="text-red">*</span>
+                      </h2>
+                      <Input
+                        placeholder="Nhập mô tả"
+                        onChange={(value) => field.onChange(value)}
+                        className="w-full bg-white"
+                      />
+                    </>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              name="image"
+              control={form.control}
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <>
+                      <h2 className="small xl:big">
+                        Thêm ảnh bìa <span className="text-red">*</span>
+                      </h2>
+                      <InputImg onChange={field.onChange} />
+                    </>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              name="type"
+              control={form.control}
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <>
+                      <h2 className="small xl:big">
+                        Chọn loại bài viết <span className="text-red">*</span>
+                      </h2>
+                      <Select onValueChange={(value) => field.onChange(value)}>
+                        <SelectTrigger className="rounded-full">
+                          <SelectValue placeholder="Chọn loại bài viết" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {types.map((item) => (
+                            <SelectItem key={item.id} value={item.id}>
+                              {item.name}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            {isShowPrice && (
+              <FormField
+                name="price"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <>
+                        <h2 className="small xl:big">Nhập Giá (VND)</h2>
+                        <Input
+                          type="number"
+                          placeholder="Nhập giá"
+                          onChange={(value) => field.onChange(value)}
+                          className="w-full bg-white"
+                        />
+                      </>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
             )}
-          />
-          <div className="flex items-center mt-[70px] justify-end">
-            <Button
-              type="submit"
-              disabled={isLoading}
-              className={`rounded-full px-20 ${
-                isLoading && "bg-line hover:bg-line"
-              }`}
-            >
-              {isLoading ? <div className="loading" /> : "Tạo"}
-            </Button>
+
+            <FormField
+              name="content"
+              control={form.control}
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <>
+                      <h2 className="small xl:big">
+                        Nhập nội dung <span className="text-red">*</span>
+                      </h2>
+                      <Editor
+                        className="h-[200px]"
+                        onChange={(value) => field.onChange(value)}
+                      />
+                    </>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <div className="flex items-center mt-[70px] justify-end">
+              <Button
+                type="submit"
+                disabled={isLoading}
+                className={`rounded-full px-20 ${
+                  isLoading && "bg-line hover:bg-line"
+                }`}
+              >
+                {isLoading ? <div className="loading" /> : "Tạo"}
+              </Button>
+            </div>
           </div>
-        </div>
-      </motion.form>
-    </Form>
+        </motion.form>
+      </Form>
+    </div>
   );
 };
 

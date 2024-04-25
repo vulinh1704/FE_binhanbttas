@@ -87,8 +87,8 @@ const AdminListBlogs = ({ token }) => {
                         Sửa
                       </Button>
                     </DialogTrigger>
-                    <DialogContent>
-                      <EditBlog />
+                    <DialogContent className="">
+                      <EditBlog id={item.id} />
                     </DialogContent>
                   </Dialog>
                   <Button
