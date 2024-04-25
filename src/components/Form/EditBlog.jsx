@@ -245,6 +245,7 @@ const EditBlog = ({ id }) => {
                         Nhập nội dung <span className="text-red">*</span>
                       </h2>
                       <Editor
+                        containerClass="h-[243px]"
                         className="h-[200px]"
                         onChange={(value) => field.onChange(value)}
                       />
