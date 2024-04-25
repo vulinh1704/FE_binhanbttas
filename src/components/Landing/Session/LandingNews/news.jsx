@@ -33,7 +33,7 @@ const News = () => {
     if (data.length > 0) {
       content = (
         <>
-          <div className="hidden lg:flex justify-between">
+          <div className="hidden lg:grid grid-cols-4 gap-[15px]">
             {newData.map((item) => (
               <LandingNewsItem
                 key={item.id}

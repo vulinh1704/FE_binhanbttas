@@ -8,6 +8,12 @@ import {
 import { Button } from "../../components/ui/button";
 import { formatTime } from "../../utils";
 import EmptyData from "../../components/EmptyData";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "../../components/ui/dialog";
+import EditBlog from "../../components/Form/EditBlog";
 
 const AdminListBlogs = ({ token }) => {
   const [blogs, setBlogs] = useState([]);
@@ -49,7 +55,7 @@ const AdminListBlogs = ({ token }) => {
                   <img
                     src={item.image}
                     alt=""
-                    className="max-w-[100px] max-h-[100px] sm:max-w-[300px] sm:max-h-[300px] object-contain rounded-lg"
+                    className="max-w-[100px] max-h-[100px] sm:max-w-[278px] sm:max-h-[182px] object-contain rounded-lg"
                   />
                   <div className="flex flex-col gap-3">
                     <div className="flex flex-col gap-0 sm:gap-2">
@@ -75,6 +81,16 @@ const AdminListBlogs = ({ token }) => {
                       Xem chi tiết
                     </Link>
                   </Button>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button className="bg-primary/70 hover:bg-primary sm:h-10 h-8">
+                        Sửa
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent>
+                      <EditBlog />
+                    </DialogContent>
+                  </Dialog>
                   <Button
                     className="bg-red/70 hover:bg-red sm:h-10 h-8"
                     onClick={() => handleRemoveBlog(item.id)}

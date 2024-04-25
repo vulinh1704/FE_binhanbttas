@@ -34,7 +34,7 @@ const BauTrangLanding = () => {
             {data.slice(0, 4).map((item) => (
               <LandingTourItem
                 href={item.id}
-                // price={item.price}
+                price={item.price}
                 key={item.id}
                 image={item.image}
                 title={item.title}

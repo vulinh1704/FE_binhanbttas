@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "../../ui/button";
 const LandingNewsItem = ({ href, image, title }) => {
   return (
-    <Link to={href}>
+    <Link asChild className="w-full" to={href}>
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         viewport={{ once: true }}
@@ -26,14 +26,14 @@ const LandingNewsItem = ({ href, image, title }) => {
               {title}
             </h2>
           </div>
-          <div className="w-full flex items-center justify-center">
+          {/* <div className="w-full flex items-center justify-center">
             <Button
               asChild
               variant="link"
               size="mini"
               className="hover:bg-line/70 w-fit !no-underline"
             ></Button>
-          </div>
+          </div> */}
         </div>
       </motion.div>
     </Link>
