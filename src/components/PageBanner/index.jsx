@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 const PageBanner = ({ bg, title, isShowLink = false, pageName }) => {
+  const { t } = useTranslation();
   const bgBanner = {
     backgroundImage: `url(${bg})`,
   };
@@ -15,7 +17,7 @@ const PageBanner = ({ bg, title, isShowLink = false, pageName }) => {
         {isShowLink && (
           <div className="flex gap-2 items-center justify-center">
             <p className="text-line cursor-pointer">
-              <Link to="/">Trang chủ</Link>
+              <Link to="/">{t("navbar.home")}</Link>
             </p>
             <div className="w-1 h-1 bg-yellow rounded-full" />
             <p className="text-white">{pageName}</p>

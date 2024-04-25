@@ -5,8 +5,9 @@ import { handleGetBlogs } from "../services/blogs/blogs.service";
 import { useSearchParams } from "react-router-dom";
 import { Skeleton } from "../components/ui/skeleton";
 import BlogItem from "../components/BlogItem";
-
+import { useTranslation } from "react-i18next";
 const Search = () => {
+  const { t } = useTranslation();
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [searchParams, _] = useSearchParams();
@@ -32,7 +33,7 @@ const Search = () => {
 
   if (isLoading) {
     content = (
-      <div>
+      <div className="flex flex-col gap-3">
         {Array.from({ length: 8 }).map(() => (
           <div className="w-full bg-bg p-2 gap-2 flex flex-col rounded-xl">
             <Skeleton className="w-full h-[230px] bg-line " />
@@ -63,9 +64,7 @@ const Search = () => {
       );
     } else {
       content = (
-        <h2 className="heading-5 font-bold text-center">
-          Chưa có bài viết nào!
-        </h2>
+        <h2 className="heading-5 font-bold text-center">{t("main.empty")}</h2>
       );
     }
   }
@@ -73,7 +72,7 @@ const Search = () => {
   return (
     <div className="pt-[150px] w-full px-4 mx-auto xl:max-w-[1410px]">
       <h2 className=" mb-10 font-bold md:font-bold small md:big">
-        Kết quả tìm kiếm cho: {searchValue}
+        {t("search")} {searchValue}
       </h2>
       <div className="flex flex-col gap-3 mb-10">{content}</div>
     </div>

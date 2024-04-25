@@ -14,6 +14,8 @@ import {
 } from "../ui/form";
 import { Input } from "../ui/input";
 import { handleSendContact } from "../../services/users/user.service";
+import { useTranslation } from "react-i18next";
+
 const formSchema = z.object({
   username: z.string().min(1, { message: "Vui lòng nhập tên" }),
   email: z.string().email({ message: "Email không chính xác!" }),
@@ -22,6 +24,7 @@ const formSchema = z.object({
 });
 
 const FormContact = () => {
+  const { t } = useTranslation();
   const [isSent, setIsSent] = useState(false);
   const [content, setContent] = useState();
 
@@ -46,9 +49,9 @@ const FormContact = () => {
     const res = await handleSendContact(values);
     setIsSent(true);
     if (res) {
-      setContent(<p className="text-green big">Gửi Thành công!</p>);
+      setContent(<p className="text-green big">{t("contactForm.success")}</p>);
     } else {
-      setContent(<p className="text-red big">Gửi Thất bại!</p>);
+      setContent(<p className="text-red big">{t("contactForm.fail")}</p>);
     }
   };
 
@@ -63,7 +66,7 @@ const FormContact = () => {
       >
         <div className="w-full rounded-[20px] bg-bg p-8 flex flex-col gap-3">
           <h4 className="heading-4 font-bold text-secondary mb-5">
-            Nhập thông tin
+            {t("contactForm.info")}
           </h4>
           <FormField
             name="username"
@@ -72,7 +75,7 @@ const FormContact = () => {
               <FormItem>
                 <FormControl>
                   <Input
-                    placeholder="Nhập tên"
+                    placeholder={t("contactForm.name")}
                     onChange={(value) => field.onChange(value)}
                     className="w-full bg-white"
                   />
@@ -88,7 +91,7 @@ const FormContact = () => {
               <FormItem>
                 <FormControl>
                   <Input
-                    placeholder="Nhập email"
+                    placeholder={t("contactForm.email")}
                     onChange={(value) => field.onChange(value)}
                     className="w-full bg-white"
                   />
@@ -104,7 +107,7 @@ const FormContact = () => {
               <FormItem>
                 <FormControl>
                   <Input
-                    placeholder="Nhập số điện thoại"
+                    placeholder={t("contactForm.phone")}
                     onChange={(value) => field.onChange(value)}
                     className="w-full bg-white"
                     onKeyDown={blockInvalidChar}
@@ -122,7 +125,7 @@ const FormContact = () => {
               <FormItem>
                 <FormControl>
                   <textarea
-                    placeholder="Nhập câu hỏi"
+                    placeholder={t("contactForm.ques")}
                     onChange={(value) => field.onChange(value)}
                     className="w-full border border-line bg-white h-[150px] lg:h-[300px] px-3 py-2 text-sm placeholder:text-sm text-text focus-visible:outline-primary/50 rounded-xl"
                   />
@@ -134,7 +137,7 @@ const FormContact = () => {
           <div className="flex w-full gap-5 items-center justify-end">
             {isSent && content}
             <Button type="submit" className="rounded-full px-20">
-              Gửi
+              {t("contactForm.send")}
             </Button>
           </div>
         </div>

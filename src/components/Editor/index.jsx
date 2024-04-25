@@ -2,11 +2,11 @@ import React, { useRef } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
-const Editor = ({ onChange }) => {
+const Editor = ({ onChange, className }) => {
   const reactQuillRef = useRef(null);
   return (
     <ReactQuill
-      className="bg-white "
+      className={`bg-white h-[400px] ${className}`}
       ref={reactQuillRef}
       theme="snow"
       placeholder="Start writing..."

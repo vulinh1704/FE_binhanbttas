@@ -20,6 +20,12 @@ export const handleGetBlogs = async (params) => {
   } catch (error) {}
 };
 
+export const handleGetBlog = async (id) => {
+  try {
+    return await axios.get(`${BASE_URL}/${ENDPOINT}/${id}`);
+  } catch (error) {}
+};
+
 export const handleRemoveBlogs = async (id) => {
   try {
     return await axios.delete(`${BASE_URL}/${ENDPOINT}/${id}`, {

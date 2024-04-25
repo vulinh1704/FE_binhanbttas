@@ -1,87 +1,42 @@
 import React from "react";
 import SectionLayout from "../../../SectionLayout";
 import SectionHeader from "../../../SectionHeader";
-import LandingTourItem from "../../Comps/LandingTourItem";
-import { Carousel, CarouselContent, CarouselItem } from "../../../ui/carousel";
-import { useQuery } from "@tanstack/react-query";
-import { handleGetBlogs } from "../../../../services/blogs/blogs.service";
-import LandingLoading from "../../Comps/LandingLoading";
-
+import BauTrangLanding from "./bautrang";
+import HonCauIslandLanding from "./honcauIsland";
+import MuiNeLanding from "./muine";
+import SealinkLanding from "./sealink";
+import { useTranslation } from "react-i18next";
 const LandingTour = () => {
-  const { data, isLoading } = useQuery({
-    queryKey: ["tour"],
-    queryFn: async () => {
-      const res = await handleGetBlogs({
-        params: {
-          typeId: "959076371645661185",
-        },
-      });
-      if (res) {
-        return res.data.list;
-      }
-    },
-  });
-
-  let content;
-
-  if (isLoading) {
-    content = <LandingLoading />;
-  }
-
-  if (data) {
-    if (data.length > 0) {
-      content = (
-        <>
-          <div className="lg:grid hidden justify-center place-items-center items-center grid-cols-4 gap-[15px] w-full">
-            {data.map((item) => (
-              <LandingTourItem
-                href={item.id}
-                // price={item.price}
-                key={item.id}
-                image={item.image}
-                title={item.title}
-                description={item.description}
-              />
-            ))}
-          </div>
-          <div className="lg:hidden">
-            <Carousel
-              opts={{
-                align: "start",
-              }}
-              className="w-full"
-            >
-              <CarouselContent className="pr-3 gap-3 mr-2 sm:mr-3 md:mr-5">
-                {data.map((item) => (
-                  <CarouselItem key={item.id} className="md:basis-1/2">
-                    <LandingTourItem
-                      // price={item.price}
-                      image={item.image}
-                      title={item.title}
-                      description={item.description}
-                    />
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-            </Carousel>
-          </div>
-        </>
-      );
-    } else {
-      content = (
-        <h2 className="heading-5 font-bold text-center">
-          Chưa có bài viết nào!
-        </h2>
-      );
-    }
-  }
+  const { t } = useTranslation();
 
   return (
     <SectionLayout>
-      <SectionHeader href="/tours" des="Đi cùng người thân vừa vui vừa thích!">
-        Các điểm đến thú vị tại Bình Thuận
-      </SectionHeader>
-      {content}
+      <div className="flex flex-col gap-3 md:gap-5">
+        <h2 className="heading-6 text-secondary md:heading-4 font-bold md:font-bold text-center">
+          {t("landing.tour.title")}
+        </h2>
+        <p className="text-text text-center pl-2 small md:big">
+          {t("landing.tour.des")}
+        </p>
+      </div>
+      <div className="flex flex-col gap-3 md:gap-5">
+        <SectionHeader href="/bau-trang">{t("navbar.bauTrang")}</SectionHeader>{" "}
+        <BauTrangLanding />
+      </div>
+      <div className="flex flex-col gap-3 md:gap-5">
+        <SectionHeader href="/honcauisland">
+          {t("navbar.honCauIsland")}
+        </SectionHeader>
+        <HonCauIslandLanding />
+      </div>
+      <div className="flex flex-col gap-3 md:gap-5">
+        <SectionHeader href="/mui-ne">{t("navbar.muiNe")}</SectionHeader>{" "}
+        <MuiNeLanding />
+      </div>
+      <div className="flex flex-col gap-3 md:gap-5">
+        <SectionHeader href="/sealink">{t("navbar.sealink")}</SectionHeader>{" "}
+        <SealinkLanding />
+      </div>
     </SectionLayout>
   );
 };
