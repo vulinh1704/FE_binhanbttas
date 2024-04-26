@@ -23,7 +23,7 @@ const TransLanguage = () => {
   const { i18n } = useTranslation();
 
   return (
-    <Select onValueChange={(e) => i18n.changeLanguage(e)} defaultValue="vi">
+    <Select onValueChange={(e) => i18n.changeLanguage(e)}>
       <SelectTrigger className="w-[80px] px-1 gap-1 rounded-full bg-transparent">
         <SelectValue />
       </SelectTrigger>
