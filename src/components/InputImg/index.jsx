@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { uploadBytes, ref, getDownloadURL } from "firebase/storage";
 import { Input } from "../ui/input";
 import { storage } from "../../firebase";
-const InputImg = ({ onChange }) => {
-  const [imgUrl, setImgUrl] = useState("");
+const InputImg = ({ onChange, imgSrc }) => {
+  const [imgUrl, setImgUrl] = useState(imgSrc || "");
+  console.log(1111, imgUrl);
+  const inputRef = useRef(null);
   const handleGetImage = async (e) => {
     const value = e.target.files[0];
     if (value) {
@@ -16,7 +18,17 @@ const InputImg = ({ onChange }) => {
     }
   };
   return (
-    <>
+    <div className="w-full relative h-fit">
+      <Input
+        type="file"
+        ref={inputRef}
+        onChange={(value) => handleGetImage(value)}
+        className="w-full h-full hidden"
+      />
+      <div
+        className="w-full h-full absolute bg-transparent"
+        onClick={() => inputRef.current?.click()}
+      />
       {!imgUrl ? (
         <Input
           type="file"
@@ -32,7 +44,7 @@ const InputImg = ({ onChange }) => {
           />
         </div>
       )}
-    </>
+    </div>
   );
 };
 

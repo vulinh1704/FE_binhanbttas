@@ -2,11 +2,12 @@ import React, { useRef } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
-const Editor = ({ onChange, className, containerClass }) => {
+const Editor = ({ onChange, className, containerClass, defaultValue }) => {
   const reactQuillRef = useRef(null);
   return (
     <div className={`h-[443px] bg-white ${containerClass}`}>
       <ReactQuill
+        defaultValue={defaultValue}
         className={`bg-transparent h-[400px] ${className}`}
         ref={reactQuillRef}
         theme="snow"
