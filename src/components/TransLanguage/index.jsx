@@ -46,7 +46,7 @@ const TransLanguage = () => {
         ))}
       </div>
       <div className="hidden xl:block">
-        <Select onValueChange={(e) => i18n.changeLanguage(e)}>
+        <Select defaultValue="vi" onValueChange={(e) => i18n.changeLanguage(e)}>
           <SelectTrigger className="w-[80px] px-1 gap-1 rounded-full bg-transparent">
             <SelectValue />
           </SelectTrigger>
